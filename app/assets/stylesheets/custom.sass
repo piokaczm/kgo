@@ -20,9 +20,7 @@ h1, h2, h3
   
 body
   padding-top: 70px
-  
-ul
-  list-style: none
+
   
 .navbar
   background-color: #04d27a
@@ -141,6 +139,17 @@ select, .form_field, .uneditable-input
   border-radius: 5px
   margin-bottom: 35px
   width: 100%
+  color: white
   
+#error_explanation
+  color: red
+  ul
+    color: red
+    margin: 0 0 30px 0
+
+.field_with_errors
+  @extend .has-error
+  .form-control
+    color: $state-danger-text
   
   

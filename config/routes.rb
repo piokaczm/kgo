@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   get 'o_nas' => 'main_pages#about'
   get 'kontakt' => 'main_pages#contact'
   get 'zasady_uzytkowania' => 'main_pages#terms'
+  
+  resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -3,6 +3,16 @@
 
 $gray-light: #d8d8d8
 
+/* TypOGRAPHY */
+
+p
+  line-height: 1
+  letter-spacing: -1px
+  
+h1, h2, h3
+  padding-bottom: 25px
+  
+
 /* GLOBAL */
   
 body
@@ -47,7 +57,7 @@ body
 
 .navbar-default
   .navbar-toggle
-    background-color: #36db94
+    background-color: #04d27a
     border-color: white
     &:hover
       background-color: #5ee2a9
@@ -82,25 +92,34 @@ footer
   li
     display: inline
     padding: 10px
+    
+
  
     
 /* HOME */
 
-.jumbotron
-  position: relative
-  text-align: center
-  color: white
-  background-image: image-url("#")
-  background-position: center
-  background-repeat: no-repeat
-  height: 500px
-  
-  #wrapper
-    position: absolute
-    marigin: 0
-    top: 50%
-    left: 50%
-    transform: translate(-50%, -50%)
+.container 
+  .jumbotron
+    border-radius: 0px
+    position: relative
+    text-align: center
+    color: white
+    background-image: image-url("tlo1.jpg")
+    background-position: center
+    background-repeat: no-repeat
+    background-color: gray
+    height: 500px
+
+    #wrapper
+      position: absolute
+      marigin: 0
+      top: 50%
+      left: 50%
+      transform: translate(-50%, -50%)
+
+      .btn
+        border: 0px
+
     
 
         

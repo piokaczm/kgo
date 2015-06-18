@@ -14,6 +14,7 @@ class User < ActiveRecord::Base
   validates :zip, presence: true, format: { with: /\A\d+\d+[-]+\d+\d+\d\z/ }
   validates :password, presence: true, confirmation: true, length: { minimum: 6 }
   validates :password_confirmation, presence: true
+
   
   
 end

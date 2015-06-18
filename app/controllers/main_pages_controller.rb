@@ -1,4 +1,5 @@
 class MainPagesController < ApplicationController
+  
   def home
   end
 
@@ -10,4 +11,8 @@ class MainPagesController < ApplicationController
 
   def contact
   end
+  
+  def terms
+  end
+  
 end

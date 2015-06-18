@@ -24,5 +24,11 @@ class MainPagesControllerTest < ActionController::TestCase
     assert_response :success
     assert_select "title", "Kontakt | KGO"
   end
-
+  
+  test "should get terms" do
+    get :terms
+    assert_response :success
+    assert_select "title", "Zasady Użytkowania | KGO"
+  end
+  
 end

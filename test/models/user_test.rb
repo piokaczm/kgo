@@ -107,6 +107,6 @@ class UserTest < ActiveSupport::TestCase
     user_dup.username = @user.username.upcase
     assert_not user_dup.valid?
   end
-    
+      
   
 end

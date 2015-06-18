@@ -37,7 +37,10 @@
                 <span class="glyphicon glyphicon-user"></span> Rejestracja
               <% end %>
           </li>
-          <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+          <li><%= link_to login_path do %>
+            <span class="glyphicon glyphicon-log-in"></span> Login
+            <% end %>
+          </li>
         </ul>
         
       </div>

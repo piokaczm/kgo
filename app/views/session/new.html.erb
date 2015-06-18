@@ -1,0 +1,24 @@
+<% provide(:title, "Login") %>
+
+<h1 class="center">Login</h1>
+
+
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+
+  <%= form_for :session, url: login_path do |f| %>
+
+  <%= f.label :Login_lub_email %>
+  <%= f.text_field :username, class: "form_field form-control" %>
+
+  <%= f.label :Hasło %>
+  <%= f.password_field :password, class: "form_field form-control" %>
+
+  <%= f.submit "Zaloguj się", class: "btn btn-log" %>
+
+  <% end %>
+
+    <p id="login_info"><small>Nie jesteś jeszcze sprzedawcą? <%= link_to "Dowiedz się jak zdobyć konto!", faq_path %></small></p>
+
+  </div>
+</div>

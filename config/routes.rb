@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'users/new'
+
   root 'main_pages#home'
 
   get 'pomoc' => 'main_pages#help'

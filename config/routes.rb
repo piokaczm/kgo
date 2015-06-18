@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get 'o_nas' => 'main_pages#about'
   get 'kontakt' => 'main_pages#contact'
   get 'zasady_uzytkowania' => 'main_pages#terms'
+  get 'rejestracja' => 'users#new'
   
   resources :users
 

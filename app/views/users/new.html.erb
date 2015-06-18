@@ -1,2 +1,41 @@
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
+<% provide(:title, "Rejestracja") %>
+
+<h1 class="center">Rejestracja</h1>
+
+<div class="row">
+  
+  <div class="col-md-6 col-md-offset-3">
+    <%= form_for @user do |f| %>
+    <%= f.label :Login %>
+    <%= f.text_field :username %>
+    
+    <%= f.label :Imię %>
+    <%= f.text_field :name %>
+    
+    <%= f.label :Nazwisko %>
+    <%= f.text_field :surname %>
+    
+    <%= f.label :Email %>
+    <%= f.email_field :email %>
+    
+    <%= f.label :Adres %>
+    <%= f.text_field :address %>
+    
+    <%= f.label :Miasto %>
+    <%= f.text_field :city %>
+    
+    <%= f.label :Kod_pocztowy %>
+    <%= f.text_field :zip %>
+    
+    <%= f.label :Hasło %>
+    <%= f.password_field :password %>
+    
+    <%= f.label :Powtórz_hasło %>
+    <%= f.password_field :password_confirm %>
+    
+    <%= f.submit "Stwórz konto", class: "btn btn-reg" %>
+    
+    <% end %>
+  </div>
+  
+</div>

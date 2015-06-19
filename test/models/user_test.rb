@@ -53,6 +53,12 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user.valid?
   end
   
+  test "password should be case sensitive" do
+    @user.password = "foobar"
+    @user.password_confirmation = "fOobar"
+    assert_not @user.valid?
+  end
+  
   test "email should have valid format" do
     
      valid_addresses = %w[user@example.com USER@foo.COM A_US-ER@foo.bar.org

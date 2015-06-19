@@ -1,17 +1,41 @@
 <%= provide(:title, @user.name) %>
 
 <div class="row">
-  <h2><%= @user.username %></h2>
-</div>
+  
+  <div class="col-sm-4">
+    <h2><%= @user.username %></h2>
+  </div>
 
-<div class="col-sm-4">
-  <h5><strong>Twoje dane:</strong></h5><br>
- 
-  <%= "Email:  " + @user.email %><br>
-  <%= "Imię:  " + @user.name %>
- 
-</div>
+  <% if logged_in? %>
+  
+    <div class="col-sm-4" id="dane">
+    
+      <h5><strong>Twoje dane:</strong></h5><br>
 
-<div class="col-sm-8">
-  <h5><strong>Twoje ogłoszenia:</strong></h5>
+      <%= "Imię:  " + @current_user.name %><br>
+      <%= "E-mail:  " + @current_user.email %><br>
+      <%= "Miejscowość:  " + @current_user.city %><br>
+
+    </div>
+
+    <div class="col-sm-8">
+      <h5><strong>Twoje ogłoszenia:</strong></h5>
+    </div>
+  
+  <% else %>
+    <div class="col-sm-4" id="dane">
+    
+      <h5><strong>Podstawowe dane:</strong></h5><br>
+
+      <%= "Imię:  " + @user.name %><br>
+      <%= "Miejscowość:  " + @user.city %>
+
+    </div>
+
+    <div class="col-sm-8">
+      <h5><strong>Sprzedaje:</strong></h5>
+    </div>
+
+
+  <% end %>
 </div>

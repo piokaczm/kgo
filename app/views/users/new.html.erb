@@ -4,7 +4,8 @@
 
 <div class="row">
   
-  <p class="center" id="info_reg">Pamiętaj, że konto służy jedynie do tworzenia ogłoszeń,
+  <p class="center tight" id="info_reg">Pamiętaj, że konto 
+    służy jedynie do tworzenia ogłoszeń,
     a żeby je założyć musisz otrzymać zaproszenie. 
     <%= link_to "Dowiedz się więcej!", faq_path %></p>
   
@@ -18,20 +19,11 @@
     <%= f.label :Imię %>
     <%= f.text_field :name, class: "form_field form-control"  %>
     
-    <%= f.label :Nazwisko %>
-    <%= f.text_field :surname, class: "form_field form-control" %>
-    
     <%= f.label :Email %>
     <%= f.email_field :email, class: "form_field form-control"  %>
     
-    <%= f.label :Adres %>
-    <%= f.text_field :address, class: "form_field form-control"  %>
-    
     <%= f.label :Miasto %>
     <%= f.text_field :city, class: "form_field form-control"  %>
-    
-    <%= f.label :Kod_pocztowy %>
-    <%= f.text_field :zip, class: "form_field form-control"  %>
     
     <%= f.label :Hasło %>
     <%= f.password_field :password, class: "form_field form-control"  %>

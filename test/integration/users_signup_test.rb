@@ -19,6 +19,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                 password_confirmation: "fobbar" }
     end
     assert_template 'users/new'
+    assert_not is_logged_in?
   end
   
   test "Valid signup should be accepted" do
@@ -38,6 +39,7 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
     assert_not flash.empty?
     get root_path
     assert flash.empty?
+    assert is_logged_in?
   end
   
   test "Registration page should have link to FAQ" do

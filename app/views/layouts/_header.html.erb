@@ -33,6 +33,19 @@
         </ul>
         
         <ul class="nav navbar-nav navbar-right">
+          <% if logged_in? %>
+          
+          <li><%= link_to @current_user do %>
+                <span class="glyphicon glyphicon-user"></span> Profil
+              <% end %>
+          </li>
+          <li><%= link_to logout_path, method: :delete do %>
+            <span class="glyphicon glyphicon-log-out"></span> Wyloguj
+            <% end %>
+          </li>
+          
+          <% else %>
+          
           <li><%= link_to rejestracja_path do %>
                 <span class="glyphicon glyphicon-user"></span> Rejestracja
               <% end %>
@@ -41,6 +54,8 @@
             <span class="glyphicon glyphicon-log-in"></span> Login
             <% end %>
           </li>
+          
+          <% end %>
         </ul>
         
       </div>

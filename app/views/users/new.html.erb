@@ -4,6 +4,10 @@
 
 <div class="row">
   
+  <p class="center" id="info_reg">Pamiętaj, że konto służy jedynie do tworzenia ogłoszeń,
+    a żeby je założyć musisz otrzymać zaproszenie. 
+    <%= link_to "Dowiedz się więcej!", faq_path %></p>
+  
   <div class="col-md-6 col-md-offset-3">
     <%= form_for @user do |f| %>
     <%= render 'shared/error_msg' %>
@@ -38,6 +42,9 @@
     <%= f.submit "Stwórz konto", class: "btn btn-reg" %>
     
     <% end %>
+    
+    <p class="center", id="reg_eula"><small>Założenie konta jest równoznaczne z akceptacją 
+      <%= link_to "zasad użytkowania", zasady_uzytkowania_path %></small></p>
   </div>
   
 </div>

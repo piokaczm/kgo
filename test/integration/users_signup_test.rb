@@ -35,6 +35,14 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
                                 password_confirmation: "foobar" }
     end
     assert_template 'users/show'
+    assert_not flash.empty?
+    get root_path
+    assert flash.empty?
+  end
+  
+  test "Registration page should have link to FAQ" do
+    get rejestracja_path
+    assert_select "a[href=?]", faq_path, count=2
   end
   
 end

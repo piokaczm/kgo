@@ -13,5 +13,7 @@ class MainPagesTest < ActionDispatch::IntegrationTest
     assert_select "a[href=?]", kontakt_path
     assert_select "a[href=?]", faq_path, count = 2
     assert_select "a[href=?]", zasady_uzytkowania_path
+    assert_select "a[href=?]", login_path
+    assert_select "a[href=?]", rejestracja_path
   end
 end

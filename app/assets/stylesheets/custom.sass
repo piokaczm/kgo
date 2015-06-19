@@ -137,9 +137,11 @@ select, .form_field, .uneditable-input
     
 .btn-reg
   border-radius: 5px
-  margin-bottom: 35px
+  margin-bottom: 10px
   width: 100%
   color: white
+  &:hover
+    color: white
   
 #error_explanation
   color: red
@@ -151,6 +153,12 @@ select, .form_field, .uneditable-input
   @extend .has-error
   .form-control
     color: $state-danger-text
+    
+#info_reg
+  margin-bottom: 15px
+  
+#reg_eula
+  margin-bottom: 30px
   
 /* LOGIN */
 

@@ -27,9 +27,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_template 'users/show'
     assert_not flash.empty?
     get root_path
-    assert_select "a[href=?]", logout_path
-    assert_select "a[href=?]", user_path(@user)
-    assert_select "a[href=?]", login_path, count:0
+    list_logged = [logout_path, user_path(@user), [login_path, 0], [rejestracja_path, 0]]
+    links(list_logged)
     assert flash.empty?
     delete logout_path
     assert_redirected_to root_path
@@ -37,8 +36,8 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     assert_not is_logged_in?
     assert_template 'main_pages/home'
     assert_not flash.empty?
-    assert_select "a[href=?", login_path
-    assert_select "a[href=?]", logout_path, count=0    
+    list_logged_out = [[logout_path, 0], [user_path(@user), 0], login_path, rejestracja_path]
+    links(list_logged_out)   
   end
   
 end

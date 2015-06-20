@@ -9,8 +9,8 @@ class User < ActiveRecord::Base
             format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i },
             uniqueness: { case_sensitive: false }
   validates :city, presence: true
-  validates :password, presence: true, confirmation: true, length: { minimum: 6 }
-  validates :password_confirmation, presence: true
+  validates :password, presence: true, confirmation: true, length: { minimum: 6 },
+            allow_nil: true
 
   def User.digest(string)
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :

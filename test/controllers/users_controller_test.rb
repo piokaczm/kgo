@@ -15,5 +15,5 @@ class UsersControllerTest < ActionController::TestCase
   test "should find user page" do
     assert_generates '/piopik', { controller: 'users', action: 'show', username: 'piopik' }
   end
-
+  
 end

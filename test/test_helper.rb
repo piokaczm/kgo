@@ -15,6 +15,15 @@ class ActiveSupport::TestCase
     !session[:user_id].nil?
   end
   
+  def login_as(user)
+    password = 'password'
+    if integration_test?
+      post login_path, session: { username: user.email, password: password }
+    else
+      session[:user_id] = user.id
+    end
+  end
+  
   #controller methods
   
   def title_response(list) #list = [[:page, "title"], [:page, "title"]]
@@ -38,6 +47,12 @@ class ActiveSupport::TestCase
       end
     end
   end
-
+  
+  
+  private
+  
+  def integration_test?
+    defined?(post_via_redirect)
+  end
   
 end

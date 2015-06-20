@@ -16,4 +16,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_generates '/piopik', { controller: 'users', action: 'show', username: 'piopik' }
   end
   
+  test "unauthorized edit should redirect to login" do
+    get :edit, id: @user
+    assert_not flash.empty?
+    assert_redirected_to login_path
+  end
+  
+  test "unauthorized update should redirect to login" do
+    patch :update, id: @user, user: { username: @user.username, name: @user.username,
+                              email: @user.email, city: @user.city }
+    assert_not flash.empty?
+    assert_redirected_to login_path
+  end
+  
 end

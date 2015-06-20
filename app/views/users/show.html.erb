@@ -17,6 +17,9 @@
       <p>Imię:    <%= @current_user.name %></p>
       <p>E-mail:    <%= @current_user.email %></p>
       <p>Miejscowość:    <%= @current_user.city %></p>
+      <%= link_to edit_user_path(current_user) do %>
+      <button id="edytuj" type="button" class="btn btn-sm">Edytuj dane</button>
+      <% end %>
 
     </div>
 

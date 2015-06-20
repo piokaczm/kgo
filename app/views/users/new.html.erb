@@ -9,32 +9,9 @@
     a żeby je założyć musisz otrzymać zaproszenie. 
     <%= link_to "Dowiedz się więcej!", faq_path %></p>
   
-  <div class="col-md-6 col-md-offset-3">
-    <%= form_for @user do |f| %>
-    <%= render 'shared/error_msg' %>
-    
-    <%= f.label :Login %>
-    <%= f.text_field :username, class: "form_field form-control"  %>
-    
-    <%= f.label :Imię %>
-    <%= f.text_field :name, class: "form_field form-control"  %>
-    
-    <%= f.label :Email %>
-    <%= f.email_field :email, class: "form_field form-control"  %>
-    
-    <%= f.label :Miasto %>
-    <%= f.text_field :city, class: "form_field form-control"  %>
-    
-    <%= f.label :Hasło %>
-    <%= f.password_field :password, class: "form_field form-control"  %>
-    
-    <%= f.label :Powtórz_hasło %>
-    <%= f.password_field :password_confirmation, class: "form_field form-control"  %>
-    
-    <%= f.submit "Stwórz konto", class: "btn btn-reg" %>
-    
-    <% end %>
-    
+  <%= render 'shared/userform' %>
+  
+  <div class="col-md-6 col-md-offset-3">    
     <p class="center", id="reg_eula"><small>Założenie konta jest równoznaczne z akceptacją 
       <%= link_to "zasad użytkowania", zasady_uzytkowania_path %></small></p>
   </div>

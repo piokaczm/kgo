@@ -5,6 +5,7 @@ class UsersControllerTest < ActionController::TestCase
   def setup
     @user = users(:piotr)
     @other_user = users(:cyc)
+    @third_user = users(:ciul)
   end
   
   test "should get new" do
@@ -51,11 +52,26 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to login_path
   end
   
-  #test "should redirect user if not admin" do
-  #  login_as(@other_user)
-  #  get :index
-  #  assert_not flash.empty?
-  #  assert_redirected_to root_path
-  #end
+  test "should redirect user if not admin" do
+    login_as(@other_user)
+    get :index
+    assert_redirected_to root_path
+  end
+  
+  test "should redirect destroy if not logged in" do
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @other_user
+    end
+    assert_redirected_to login_url
+  end
+  
+  test "should redirect destroy if not admin" do
+    login_as(@other_user)
+    assert_no_difference 'User.count' do
+      delete :destroy, id: @third_user
+    end
+    assert_redirected_to root_url
+  end
+  
   
 end

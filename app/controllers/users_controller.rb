@@ -1,7 +1,8 @@
 class UsersController < ApplicationController
   
-  before_action :is_logged_in, only: [:edit, :update, :index]
+  before_action :is_logged_in, only: [:edit, :update, :index, :destroy]
   before_action :authorized_user, only: [:edit, :update]
+  before_action :admin_user, only: [:index, :destroy]
   
   def index
     @users = User.paginate(page: params[:page])
@@ -47,6 +48,12 @@ class UsersController < ApplicationController
     end
   end
   
+  def destroy
+    User.find(prams[:id]).destroy
+    flash[:success] = "Usunięto użytkownika"
+    redirect_to users_path
+  end
+  
   
   private
   
@@ -72,5 +79,9 @@ class UsersController < ApplicationController
       params.require(:user).permit(:username, :name, :email,
         :city, :wojewodztwo, :password, :password_confirmation)
     end
+  
+  def admin_user
+    redirect_to root_path unless current_user.admin?
+  end
   
 end

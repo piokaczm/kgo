@@ -1,17 +1,29 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 piotr:
+  id: 1
   username: piopik
   name: Piotr
   email: pioka@gmail.com
   city: katowice
   wojewodztwo: Śląskie
   password_digest: <%= User.digest('password') %>
+  admin: true
   
 cyc:
+  id: 2
   username: cycek
   name: cyc
   email: cyc@cycowo.com
   city: Tyszky
   wojewodztwo: Śląskie
-  password_digest: <%= User.digest('password')
+  password_digest: <%= User.digest('password') %>
+  
+ciul:
+  id: 3
+  username: ciiula
+  name: ciul
+  email: ciul@cycowo.com
+  city: Tyszky
+  wojewodztwo: Śląskie
+  password_digest: <%= User.digest('password') %>

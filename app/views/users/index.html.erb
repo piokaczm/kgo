@@ -1,13 +1,22 @@
-<% provide(:title, "Lista Uytkowników") %>
+<% provide(:title, "Lista Użytkowników") %>
 
-<h1>Lista użytkowników</h1>
+<h1 class="center">Lista użytkowników</h1>
 
-<%= will_paginate %>
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <%= will_paginate %>
 
-<ul class="list-group">
-  <% @users.each do |user| %>
-  <li class="list-group-item"><%= link_to user.username, user %></li>
-  <% end %>
-</ul>
+    <ul class="list-group">
+      <% @users.each do |user| %>
+      <li class="list-group-item"><%= link_to user.username, user %>
+        <% if @current_user.admin? && !current_user?(user) %>
+        <%= link_to "Usuń", user, method: :delete, 
+        data: { confirm: "Czy chcesz usunąć #{user.username}?" } %>
+        <% end %>
+      </li>
+      <% end %>
+    </ul>
 
-<%= will_paginate %>
+    <%= will_paginate %>
+  </div>
+</div>

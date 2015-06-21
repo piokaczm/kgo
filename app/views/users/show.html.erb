@@ -19,7 +19,13 @@
       <p>Miejscowość:    <%= @current_user.city %></p>
       <p>Województwo:    <%= @current_user.wojewodztwo %></p>
       <%= link_to edit_user_path(current_user) do %>
-      <button id="edytuj" type="button" class="btn btn-sm">Edytuj dane</button>
+      <button id="edytuj" type="button" class="btn btn-sm">Edytuj dane</button> <br>
+      <% end %>
+      
+      <% if @current_user.admin? %>
+        <%= link_to users_path do %>
+        <button type="button" class="btn btn-sm">Lista użytkowników</button>
+        <% end %>
       <% end %>
 
     </div>

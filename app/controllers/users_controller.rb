@@ -1,7 +1,11 @@
 class UsersController < ApplicationController
   
-  before_action :is_logged_in, only: [:edit, :update]
+  before_action :is_logged_in, only: [:edit, :update, :index]
   before_action :authorized_user, only: [:edit, :update]
+  
+  def index
+    @users = User.paginate(page: params[:page])
+  end
   
   def new
     @user = User.new
@@ -11,7 +15,7 @@ class UsersController < ApplicationController
     if User.exists?(username: params[:username])
       @user = User.find_by(username: params[:username])
     elsif User.exists?(id: params[:id])
-      @user = User.find_by(params[:id])
+      @user = User.find_by(id: params[:id])
     else
       redirect_to root_path
       flash[:danger] = "Nie można znaleźć wskazanego użytkownika"

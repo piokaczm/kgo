@@ -45,4 +45,17 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_path
   end
   
+  test "should redirect user if not logged in" do
+    get :index
+    assert_not flash.empty?
+    assert_redirected_to login_path
+  end
+  
+  #test "should redirect user if not admin" do
+  #  login_as(@other_user)
+  #  get :index
+  #  assert_not flash.empty?
+  #  assert_redirected_to root_path
+  #end
+  
 end

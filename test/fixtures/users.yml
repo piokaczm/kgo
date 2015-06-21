@@ -5,6 +5,7 @@ piotr:
   name: Piotr
   email: pioka@gmail.com
   city: katowice
+  wojewodztwo: Śląskie
   password_digest: <%= User.digest('password') %>
   
 cyc:
@@ -12,4 +13,5 @@ cyc:
   name: cyc
   email: cyc@cycowo.com
   city: Tyszky
+  wojewodztwo: Śląskie
   password_digest: <%= User.digest('password')

@@ -25,7 +25,8 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
       post_via_redirect users_path, user: { username: "kaczmuch", 
                                 name: "Piotr", 
                                 email: "piokaczm@gmail.com", 
-                                city: "Tychy", 
+                                city: "Tychy",
+                                wojewodztwo: "Śląskie",
                                 password: "foobar", 
                                 password_confirmation: "foobar" }
     end

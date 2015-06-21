@@ -14,6 +14,9 @@
     <%= f.label :Miasto %>
     <%= f.text_field :city, class: "form_field form-control"  %>
     
+    <%= f.label :Województwo %>
+    <%= f.select :wojewodztwo, options_for_select(list_wojewodztwa.collect { |woj| [woj, woj] }), {}, { class: "form_field form-control" }  %>
+    
     <%= f.label :Hasło %>
     <%= f.password_field :password, class: "form_field form-control"  %>
     

@@ -17,6 +17,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                           name: "  ",
                                           email: "ku@pa",
                                           city: "Cycki",
+                                          województwo: @user.wojewodztwo,
                                           password: "kau",
                                           password_confirmation: "szau"}
     assert_template 'users/edit'
@@ -26,6 +27,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
     get edit_user_path(@user)
     login_as(@user)
     assert_redirected_to edit_user_path(@user)
+    follow_redirect!
     assert_template 'users/edit'
     username = "piczka"
     email = "piczka@picze.com"
@@ -33,6 +35,7 @@ class UsersEditTest < ActionDispatch::IntegrationTest
                                     name: @user.name,
                                     email: email,
                                     city: @user.city,
+                                    województwo: @user.wojewodztwo,
                                     password: "",
                                     password_confirmation: "" }
     assert_redirected_to @user

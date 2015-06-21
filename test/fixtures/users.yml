@@ -7,3 +7,9 @@ piotr:
   city: katowice
   password_digest: <%= User.digest('password') %>
   
+cyc:
+  username: cycek
+  name: cyc
+  email: cyc@cycowo.com
+  city: Tyszky
+  password_digest: <%= User.digest('password')

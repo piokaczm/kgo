@@ -4,6 +4,7 @@ class UsersControllerTest < ActionController::TestCase
   
   def setup
     @user = users(:piotr)
+    @other_user = users(:cyc)
   end
   
   test "should get new" do
@@ -27,6 +28,21 @@ class UsersControllerTest < ActionController::TestCase
                               email: @user.email, city: @user.city }
     assert_not flash.empty?
     assert_redirected_to login_path
+  end
+  
+  test "should deny access for wrong user" do
+    login_as(@other_user)
+    get :edit, id: @user
+    assert_not flash.empty?
+    assert_redirected_to root_path
+  end
+  
+  test "should deny update for wrong user" do
+    login_as(@other_user)
+    patch :update, id: @user, user: { username: @user.username, name: @user.name,
+                                      email: @user.email, city: @user.city }
+    assert_not flash.empty?
+    assert_redirected_to root_path
   end
   
 end

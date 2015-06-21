@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
   
   before_action :is_logged_in, only: [:edit, :update]
+  before_action :authorized_user, only: [:edit, :update]
   
   def new
     @user = User.new
@@ -45,12 +46,22 @@ class UsersController < ApplicationController
   
   private
   
-  def is_logged_in
-    unless logged_in?
-      flash["danger"] = "Aby wyświetlić tę stronę należy się zalogować"
-      redirect_to login_path
+    def is_logged_in
+      unless logged_in?
+        store_location
+        flash["danger"] = "Aby wyświetlić tę stronę należy się zalogować"
+        redirect_to login_path
+      end
     end
-  end
+  
+    def authorized_user
+      @user = User.find(params[:id])
+      unless current_user?(@user)
+        flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
+        redirect_to root_path
+      end
+
+    end
   
   
     def user_params

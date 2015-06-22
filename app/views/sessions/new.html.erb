@@ -13,13 +13,19 @@
 
   <%= f.label :Hasło %>
   <%= f.password_field :password, class: "form_field form-control" %>
+  
+  
 
   <%= f.submit "Zaloguj się", class: "btn btn-log" %>
 
   <% end %>
+  
+  <%= link_to new_password_reset_path do %>
+  <p class="tight"><small>Nie pamiętam hasła</small></p>
+  <% end %>
 
-    <p id="login_info" class="tight"><small>Nie jesteś jeszcze sprzedawcą? 
-      <%= link_to "Dowiedz się jak zdobyć konto!", faq_path %></small></p>
+  <p id="login_info" class="tight"><small>Nie jesteś jeszcze sprzedawcą? 
+  <%= link_to "Dowiedz się jak zdobyć konto!", faq_path %></small></p>
 
   </div>
 </div>

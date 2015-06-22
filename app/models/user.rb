@@ -2,7 +2,9 @@ class User < ActiveRecord::Base
   
     WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
   
-  before_save { self.email.downcase! }
+  attr_accessor :activation_token
+  before_save :email_downcase
+  before_create :create_activation_token
   has_secure_password
   validates :username, presence: true, length: { maximum: 20 },
             uniqueness: { case_sensitive: false }
@@ -20,6 +22,36 @@ class User < ActiveRecord::Base
     cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                                   BCrypt::Engine.cost
     BCrypt::Password.create(string, cost: cost)
+  end
+  
+
+  
+  def User.new_token
+    SecureRandom.urlsafe_base64
+  end
+  
+  def email_downcase
+    self.email.downcase!
+  end
+  
+  def create_activation_token
+    self.activation_token = User.new_token
+    self.activation_digest = User.digest(activation_token)
+  end
+  
+  def authenticated?(attribute, token)
+    digest = send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
+  end
+  
+  def activate
+    update_attribute(:activated, true)
+    update_attribute(:activated_at, Time.zone.now)
+  end
+  
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
   
 end

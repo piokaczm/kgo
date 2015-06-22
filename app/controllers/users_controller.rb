@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :is_logged_in, only: [:edit, :update, :index, :destroy]
   before_action :authorized_user, only: [:edit, :update]
   before_action :admin_user, only: [:index, :destroy]
-  
+
   def index
     @users = User.paginate(page: params[:page])
   end
@@ -26,9 +26,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      log_in @user
-      flash[:success] = "Dzięki za rejestrację!"
-      redirect_to @user
+      @user.send_activation_email
+      flash[:info] = "Sprawdź swojego maila, żeby aktywować konto"
+      redirect_to root_path
     else
       render 'new'
     end
@@ -80,8 +80,9 @@ class UsersController < ApplicationController
         :city, :wojewodztwo, :password, :password_confirmation)
     end
   
-  def admin_user
-    redirect_to root_path unless current_user.admin?
-  end
+    def admin_user
+      redirect_to root_path unless current_user.admin?
+    end
+
   
 end

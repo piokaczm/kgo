@@ -1,0 +1,6 @@
+<h4>Cześć <%= @user.username %>,</h4>
+
+
+<p>Dzięki za założenie konta w KGO, żeby móc w pełni z niego korzystać naciśnij link poniżej:
+</p>
+<%= link_to "Aktywuj konto", edit_account_activation_url(@user.activation_token, email: @user.email) %>

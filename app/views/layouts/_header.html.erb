@@ -49,12 +49,19 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
           
+          <li><%= link_to '#' do %>
+            <span class="glyphicon glyphicon-plus"></span>
+            <p class="hidden-sm inline"> Ogłoszenie</p>
+            <% end %>
+          </li>
           <li><%= link_to @current_user do %>
-                <span class="glyphicon glyphicon-user"></span> Profil
-              <% end %>
+            <span class="glyphicon glyphicon-user"></span>
+            <p class="hidden-sm inline"> Profil</p>
+            <% end %>
           </li>
           <li><%= link_to logout_path, method: :delete do %>
-            <span class="glyphicon glyphicon-log-out"></span> Wyloguj
+            <span class="glyphicon glyphicon-log-out"></span>
+            <p class="hidden-sm inline"> Wyloguj</p>
             <% end %>
           </li>
           

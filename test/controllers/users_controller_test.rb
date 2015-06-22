@@ -73,5 +73,14 @@ class UsersControllerTest < ActionController::TestCase
     assert_redirected_to root_url
   end
   
+  test "should delete user" do
+    login_as(@user)
+    assert_difference 'User.count', -1 do
+      delete :destroy, id: @third_user
+    end
+    assert_not flash.empty?
+    assert_redirected_to users_path
+  end
+    
   
 end

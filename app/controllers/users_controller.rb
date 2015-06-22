@@ -49,7 +49,7 @@ class UsersController < ApplicationController
   end
   
   def destroy
-    User.find(prams[:id]).destroy
+    User.find(params[:id]).destroy
     flash[:success] = "Usunięto użytkownika"
     redirect_to users_path
   end

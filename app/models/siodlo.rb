@@ -1,0 +1,3 @@
+class Siodlo < Advert
+
+end

@@ -1,0 +1,3 @@
+class Mostek < Advert
+
+end

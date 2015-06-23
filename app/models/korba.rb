@@ -1,0 +1,3 @@
+class Korba < Advert
+
+end

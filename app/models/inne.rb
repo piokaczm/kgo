@@ -1,0 +1,3 @@
+class Inne < Advert
+
+end

@@ -1,0 +1,3 @@
+class Kolo < Advert
+
+end

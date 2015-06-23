@@ -1,5 +1,8 @@
 class User < ActiveRecord::Base
   
+  has_many :adverts, dependent: :destroy
+  delegate :inne, :kierownice, :kola, :korby, :mostki, :ramy, :rowery, :siodla, :sztyce, :widelce, to: :adverts
+  
     WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
   
   attr_accessor :activation_token, :reset_token

@@ -15,6 +15,7 @@ class Advert < ActiveRecord::Base
   scope :widelce, -> { where(type: "Widelec") }
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
+  TYPELIST = %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)
   
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
@@ -24,6 +25,8 @@ class Advert < ActiveRecord::Base
   validates :new, inclusion: { in: [true, false] } 
   validates :size1, numericality: { only_integer: true }
   validates :size2, numericality: true
+  validates :city, presence: true
+  validates :type, presence: true, inclusion: { in: TYPELIST }
   
   def self.types
     %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)

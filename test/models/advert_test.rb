@@ -6,7 +6,7 @@ class AdvertTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:piotr)
-    @advert = @user.adverts.build(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, new: true, size1: 52, size2: 53.5)
+    @advert = @user.adverts.build(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, type: "Kierownica")
   end
   
   
@@ -66,6 +66,17 @@ class AdvertTest < ActiveSupport::TestCase
   test "order should be from most to least recent" do
     assert_equal adverts(:one), Advert.first
   end
-
+  
+  test "city should be present" do
+    @advert.city = " "
+    assert_not @advert.valid?
+  end
+  
+  test "type shoud be present and within self.types" do
+    @advert.type = " "
+    assert_not @advert.valid?
+    @advert.type = "Majtki"
+    assert_not @advert.valid?
+  end
   
 end

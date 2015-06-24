@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150623181653) do
+ActiveRecord::Schema.define(version: 20150624125814) do
 
   create_table "adverts", force: :cascade do |t|
     t.string   "title"
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 20150623181653) do
     t.integer  "user_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.string   "city"
   end
 
   add_index "adverts", ["user_id", "created_at"], name: "index_adverts_on_user_id_and_created_at"

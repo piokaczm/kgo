@@ -1,0 +1,6 @@
+<h1>Adverts#index</h1>
+<ul>
+  <% @adverts.each do |ad| %>
+  <li><%= link_to ad.title, ad %></li>
+  <% end %>
+</ul>

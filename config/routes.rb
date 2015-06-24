@@ -1,12 +1,23 @@
 Rails.application.routes.draw do
 
+  resources :inne, controller: 'adverts', type: "Inne", only: [:index]
+  resources :kierownice, controller: 'adverts', type: "Kierownica", only: [:index]
+  resources :kola, controller: 'adverts', type: "Kolo", only: [:index]
+  resources :korby, controller: 'adverts', type: "Korba", only: [:index]
+  resources :mostki, controller: 'adverts', type: "Mostek", only: [:index]
+  resources :ramy, controller: 'adverts', type: "Rama", only: [:index]
+  resources :rowery, controller: 'adverts', type: "Rower", only: [:index]
+  resources :siodla, controller: 'adverts', type: "Siodlo", only: [:index]
+  resources :sztyce, controller: 'adverts', type: "Sztyca", only: [:index]
+  resources :widelce, controller: 'adverts', type: "Widelec", only: [:index]
+  
   root 'main_pages#home'
   get 'faq' => 'main_pages#help'
   get 'o_nas' => 'main_pages#about'
   get 'kontakt' => 'main_pages#contact'
   get 'zasady_uzytkowania' => 'main_pages#terms'
   get 'rejestracja' => 'users#new'  
-  resources :users  
+  resources :users, :adverts
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
   delete 'logout' => 'sessions#destroy'  
@@ -14,6 +25,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit, :update, :create, :new]
 
+ 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

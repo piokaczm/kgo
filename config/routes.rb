@@ -6,8 +6,8 @@ Rails.application.routes.draw do
   get 'kontakt' => 'main_pages#contact'
   get 'zasady_uzytkowania' => 'main_pages#terms'
   get 'rejestracja' => 'users#new'  
-  resources :adverts
-  resources :users
+  resources :adverts, path: 'ogloszenia'
+  resources :users, path: 'uzytkownicy'
   get 'ogloszenia' => 'adverts#index'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'

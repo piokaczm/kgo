@@ -46,10 +46,12 @@
           </li>                  
         </ul>
         
+        
+        
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
           
-          <li><%= link_to '#' do %>
+          <li><%= link_to new_advert_path do %>
             <span class="glyphicon glyphicon-plus"></span>
             <p class="hidden-sm inline"> Ogłoszenie</p>
             <% end %>

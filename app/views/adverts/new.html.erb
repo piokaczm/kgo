@@ -1,3 +1,16 @@
 <% provide(:title, "Nowe Ogłoszenie") %>
 
 <h1 class="center">Dodaj nowe ogłoszenie</h1>
+
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    
+    <%= form_for @advert do |f| %>
+    
+    <%= f.label :Nazwa_przedmiotu %>
+    <%= f.text_field :title, class: "form_field form-control" %>
+    
+    <% end %>
+    
+  </div>
+</div>

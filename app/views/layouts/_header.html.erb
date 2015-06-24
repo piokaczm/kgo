@@ -27,9 +27,9 @@
             <a class="dropdown-toggle" data-toggle="dropdown" role="button" 
                aria-haspopup="true" aria-expanded="false" href="#">Kategorie<span class="caret"></span></a>
             <ul class="dropdown-menu">
-              <li>Ramy</li>
-              <li>Kierownice</li>
-              <li>Widelce</li>
+              <% lista_kategorie.each do |cat| %>
+              <li><%= link_to cat.capitalize, adverts_path(category: cat), class: "linki_dropdown" %></li>
+              <% end %>
             </ul>
           </li>                  
         </ul>
@@ -40,7 +40,7 @@
                aria-haspopup="true" aria-expanded="false" href="#">Lokalizacja<span class="caret"></span></a>
             <ul class="dropdown-menu">
               <% list_wojewodztwa.each do |woj| %>
-              <li><%= link_to woj, '#', class: "linki_dropdown" %></li>
+              <li><%= link_to woj, adverts_path(wojewodztwo: woj), class: "linki_dropdown" %></li>
               <% end %>
             </ul>
           </li>                  

@@ -1,3 +1,0 @@
-class Rama < Advert
-
-end

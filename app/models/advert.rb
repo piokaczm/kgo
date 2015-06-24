@@ -2,20 +2,10 @@ class Advert < ActiveRecord::Base
   
   belongs_to :user
   
-  default_scope -> { order(created_at: :desc) }  
-  scope :inne, -> { where(type: "Inne") }
-  scope :kierownice, -> { where(type: "Kierownica") }
-  scope :kola, -> { where(type: "Kolo") }
-  scope :korby, -> { where(type: "Korba") }
-  scope :mostki, -> { where(type: "Mostek") }
-  scope :ramy, -> { where(type: "Rama") }
-  scope :rowery, -> { where(type: "Rower") }
-  scope :siodla, -> { where(type: "Siodlo") }
-  scope :sztyce, -> { where(type: "Sztyca") }
-  scope :widelce, -> { where(type: "Widelec") }
+  default_scope -> { order(created_at: :desc) }
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
-  TYPELIST = %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)
+  TYPELIST = %w(rowery ramy widelece korby koła kierownice mostki sztyce siodła inne)
   
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
@@ -26,10 +16,10 @@ class Advert < ActiveRecord::Base
   validates :size1, numericality: { only_integer: true }
   validates :size2, numericality: true
   validates :city, presence: true
-  validates :type, presence: true, inclusion: { in: TYPELIST }
+  validates :category, presence: true, inclusion: { in: TYPELIST }
   
   def self.types
     %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)
   end
-
+  
 end

@@ -1,26 +1,18 @@
 Rails.application.routes.draw do
 
-  resources :inne, controller: 'adverts', type: "Inne", only: [:index]
-  resources :kierownice, controller: 'adverts', type: "Kierownica", only: [:index]
-  resources :kola, controller: 'adverts', type: "Kolo", only: [:index]
-  resources :korby, controller: 'adverts', type: "Korba", only: [:index]
-  resources :mostki, controller: 'adverts', type: "Mostek", only: [:index]
-  resources :ramy, controller: 'adverts', type: "Rama", only: [:index]
-  resources :rowery, controller: 'adverts', type: "Rower", only: [:index]
-  resources :siodla, controller: 'adverts', type: "Siodlo", only: [:index]
-  resources :sztyce, controller: 'adverts', type: "Sztyca", only: [:index]
-  resources :widelce, controller: 'adverts', type: "Widelec", only: [:index]
-  
   root 'main_pages#home'
   get 'faq' => 'main_pages#help'
   get 'o_nas' => 'main_pages#about'
   get 'kontakt' => 'main_pages#contact'
   get 'zasady_uzytkowania' => 'main_pages#terms'
   get 'rejestracja' => 'users#new'  
-  resources :users, :adverts
+  resources :adverts
+  resources :users
+  get 'ogloszenia' => 'adverts#index'
   get 'login' => 'sessions#new'
   post 'login' => 'sessions#create'
-  delete 'logout' => 'sessions#destroy'  
+  delete 'logout' => 'sessions#destroy'
+  get 'ogloszenia/:category' => 'adverts#index'
   get ':username' => 'users#show', as: 'user_profile'  
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit, :update, :create, :new]

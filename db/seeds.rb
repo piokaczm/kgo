@@ -40,7 +40,7 @@ end
   content = Faker::Lorem.paragraph
   price = Faker::Number.digit
   wojewodztwo = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
-  type = %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)
+  type = %w(rowery ramy widelece korby koła kierownice mostki sztyce siodła inne)
   size1 = Faker::Number.digit
   size2 = Faker::Number.digit
   city = Faker::Address.city
@@ -51,7 +51,7 @@ end
                   price: price,
                   wojewodztwo: wojewodztwo[Random.new.rand(0..9)],
                   new: new[Random.new.rand(0..1)],
-                  type: type[Random.new.rand(0..9)],
+                  category: type[Random.new.rand(0..9)],
                   size1: size1,
                   size2: size2,
                   city: city,

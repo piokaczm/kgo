@@ -108,7 +108,7 @@ class UserTest < ActiveSupport::TestCase
   
   test "adverts should be deleted aongside with user" do
     @user.save
-    @user.adverts.create!(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, new: true, size1: 52, size2: 53.5)
+    @user.adverts.create!(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: @user.city, category: "kierownice", new: true, size1: 52, size2: 53.5)
     assert_difference 'Advert.count', -1 do
       @user.destroy
     end

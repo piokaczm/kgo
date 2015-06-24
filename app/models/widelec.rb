@@ -1,3 +1,0 @@
-class Widelec < Advert
-
-end

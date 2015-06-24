@@ -1,3 +1,0 @@
-class Rower < Advert
-
-end

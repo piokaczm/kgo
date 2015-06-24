@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150624125814) do
+ActiveRecord::Schema.define(version: 20150624172528) do
 
   create_table "adverts", force: :cascade do |t|
     t.string   "title"
@@ -19,7 +19,7 @@ ActiveRecord::Schema.define(version: 20150624125814) do
     t.float    "price"
     t.string   "wojewodztwo"
     t.boolean  "new"
-    t.string   "type"
+    t.string   "category"
     t.integer  "size1"
     t.float    "size2"
     t.integer  "user_id"

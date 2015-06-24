@@ -1,3 +1,0 @@
-class Kierownica < Advert
-
-end

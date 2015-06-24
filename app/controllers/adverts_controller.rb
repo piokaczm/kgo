@@ -1,6 +1,4 @@
 class AdvertsController < ApplicationController
-  
-  before_action :advert_type, only: [:index]
   def new
   end
 
@@ -11,7 +9,13 @@ class AdvertsController < ApplicationController
   end
 
   def index
-    @adverts = type_class.all
+    if Advert.exists?(category: params[:category])
+      @adverts = Advert.where(category: params[:category])
+    elsif Advert.exists?(wojewodztwo: params[:wojewodztwo])
+      @adverts = Advert.where(wojewodztwo: params[:wojewodztwo])
+    else
+      @adverts = Advert.all
+    end
   end
 
   def create
@@ -21,17 +25,6 @@ class AdvertsController < ApplicationController
   
   private
   
-  
-  def advert_type
-    @type = type
-  end
-  
-  def type
-    Advert.types.include?(params[:type]) ? params[:type] : "Advert"
-  end
-  
-  def type_class
-    type.constantize
-  end
+
    
 end

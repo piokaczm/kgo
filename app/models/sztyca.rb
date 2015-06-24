@@ -1,3 +1,0 @@
-class Sztyca < Advert
-
-end

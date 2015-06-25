@@ -1,5 +1,7 @@
 class Advert < ActiveRecord::Base
   
+  mount_uploader :picture, AdvertPhotoUploader
+  
   belongs_to :user
   
   default_scope -> { order(created_at: :desc) }

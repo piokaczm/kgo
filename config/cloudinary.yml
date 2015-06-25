@@ -1,0 +1,18 @@
+development:
+  cloud_name: kgo
+  api_key: '651483712423876'
+  api_secret: 6_OAzn4Andh1rTL0tjN_yve5prc
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: kgo
+  api_key: '651483712423876'
+  api_secret: 6_OAzn4Andh1rTL0tjN_yve5prc
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: kgo
+  api_key: '651483712423876'
+  api_secret: 6_OAzn4Andh1rTL0tjN_yve5prc
+  enhance_image_tag: true
+  static_image_support: false

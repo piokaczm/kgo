@@ -10,6 +10,9 @@
     <%= f.label :Nazwa_przedmiotu %>
     <%= f.text_field :title, class: "form_field form-control" %>
     
+    <%= f.label :Zdjęcie %>
+    <%= cl_image_upload_tag(:picture) %>
+    
     <% end %>
     
   </div>

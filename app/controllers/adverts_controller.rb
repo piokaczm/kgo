@@ -6,6 +6,7 @@ class AdvertsController < ApplicationController
   end
 
   def show
+    @advert = Advert.find_by(id: params[:id])
   end
 
   def edit

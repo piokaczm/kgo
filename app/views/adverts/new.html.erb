@@ -2,18 +2,10 @@
 
 <h1 class="center">Dodaj nowe ogłoszenie</h1>
 
+<%= render 'newcategory' %>
+
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
-    
-    <%= form_for @advert do |f| %>
-    
-    <%= f.label :Nazwa_przedmiotu %>
-    <%= f.text_field :title, class: "form_field form-control" %>
-    
-    <%= f.label :Zdjęcie %>
-    <%= cl_image_upload_tag(:picture) %>
-    
-    <% end %>
-    
+  <div class="col-sm-8 col-sm-offset-2" id="main_form">
+  
   </div>
 </div>

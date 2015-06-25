@@ -1,0 +1,54 @@
+<div class="row">
+  
+  <h5 class="center">Jaki rodzaj przedmiotu chcesz wystawić?</h5>   
+
+  <div class="col-sm-2 col-sm-offset-4">
+    
+    <div class="radio">
+      <%= radio_button_tag(:category, "rower", :onclick => 'renderPartial' ) %> 
+      <%= label_tag(:rower, "Rower") %>
+    </div>    
+    <div class="radio">
+      <%= radio_button_tag(:category, "rama") %> 
+      <%= label_tag(:rama, "Rama") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "widelec") %> 
+      <%= label_tag(:widelec, "Widelec") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "korba") %> 
+      <%= label_tag(:korba, "Korba") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "kola") %> 
+      <%= label_tag(:kola, "Koła") %>
+    </div>
+    
+  </div>
+  <div class="col-sm-2 col-sm-offset-1">
+    
+    <div class="radio">
+      <%= radio_button_tag(:category, "kierownica") %> 
+      <%= label_tag(:kierownica, "Kierownica") %>
+    </div>    
+    <div class="radio">
+      <%= radio_button_tag(:category, "mostek") %> 
+      <%= label_tag(:mostek, "Mostek") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "sztyca") %> 
+      <%= label_tag(:sztyca, "Sztyca") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "siodlo") %> 
+      <%= label_tag(:siodlo, "Siodło") %>
+    </div>
+    <div class="radio">
+      <%= radio_button_tag(:category, "inne") %> 
+      <%= label_tag(:inne, "Inne") %>
+    </div>
+
+  </div>
+    
+</div>

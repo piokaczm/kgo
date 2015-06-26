@@ -1,6 +1,7 @@
 class AdvertsController < ApplicationController
   
   before_action :is_logged_in, only: [:new, :edit, :create]
+  
   def new
     @advert = Advert.new
   end
@@ -23,9 +24,11 @@ class AdvertsController < ApplicationController
   end
 
   def create
-  end  
+  end 
+
   
-  
+  def update
+  end
   
   private
   

@@ -2,13 +2,11 @@
 //All this logic will automatically be available in application.js.
 //You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready(function() {
-  $('.dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').slideDown();
+var do_on_load = function() {
+  $('.dropdown').click(function(e){
+  $(this).find('.dropdown-menu').slideToggle();
   });
+}
 
- 
-  $('.dropdown').on('hide.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').slideUp();
-  });
-});
+$(document).ready(do_on_load)
+$(window).bind('page:load', do_on_load)

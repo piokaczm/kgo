@@ -1,10 +1,18 @@
 <div class="row">
   
-  <h5 class="center">Jaki rodzaj przedmiotu chcesz wystawić?</h5>   
+  <h5 class="center">Jaki rodzaj przedmiotu chcesz wystawić?</h5>
+  
+  <%= form_for @advert do |f| %>
+  
+  <%= f.select :category, options_for_select([["Rower", "rowery"], ['Rama', 'ramy'], ['Widelec', 'widelce'], ['Korba', 'korby'], ['Koło', 'koła'], ['Kierownica', 'kierownice'], ['Mostek', 'mostki'], ['Sztyca', 'sztyce'], ['Siodło', 'siodła'], ['Inne', 'inne']]), {}, { class: "form_field form-control", id: "kategorie" } %>
+  
+  <%= f.label :mostki, "Mostek", id: "size1" %>
+  
+  
+  
+  <% end %>
 
   <div class="col-sm-6 col-sm-offset-4">
-
-    <%= link_to "Rower", '#', remote: true %>
 
   </div>
     

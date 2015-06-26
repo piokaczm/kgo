@@ -1,19 +1,36 @@
 <div class="row">
   
-  <h5 class="center">Jaki rodzaj przedmiotu chcesz wystawić?</h5>
-  
-  <%= form_for @advert do |f| %>
-  
-  <%= f.select :category, options_for_select([["Rower", "rowery"], ['Rama', 'ramy'], ['Widelec', 'widelce'], ['Korba', 'korby'], ['Koło', 'koła'], ['Kierownica', 'kierownice'], ['Mostek', 'mostki'], ['Sztyca', 'sztyce'], ['Siodło', 'siodła'], ['Inne', 'inne']]), {}, { class: "form_field form-control", id: "kategorie" } %>
-  
-  <%= f.label :mostki, "Mostek", id: "size1" %>
-  
-  
-  
-  <% end %>
+  <form class="form-horizontal">
+    <div class="form-group">
+      <%= form_for @advert do |f| %>
+      
+      <%= f.label :category, "Kategoria", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">
+        <%= f.select :category, options_for_select(lista_kategorie_select.collect { |kat| [kat[0], kat[1]] }), {}, { class: "form_field form-control", id: "kategorie" } %>
+      </div>
+      
+      <%= f.label :title, "Nazwa przedmiotu", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">  
+        <%= f.text_field :title, class: "form_field form-control" %>
+      </div>
+      
+      <%= f.label :price, "Cena", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">
+        <div class="input-group">          
+          <%= f.text_field :price, class: "form-control" %>
+          <span class="input-group-addon">PLN</span>
+        </div>
+      </div>
+      
+      <%= f.label :new, "Stan", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4 form-inline center">
+        <small class="">Nowy</small>
+        <%= f.radio_button :new, true, class: "form-control" %>
+        <small class="">Używany</small>
+        <%= f.radio_button :new, false, class: "form-control" %>
+      </div>
 
-  <div class="col-sm-6 col-sm-offset-4">
-
-  </div>
-    
+      <% end %>
+    </div>
+  </form>
 </div>

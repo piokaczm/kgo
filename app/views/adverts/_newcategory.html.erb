@@ -23,14 +23,36 @@
       </div>
       
       <%= f.label :new, "Stan", class: "col-sm-2 col-sm-offset-3 control-label" %>
-      <div class="col-sm-4 form-inline center">
-        <small class="">Nowy</small>
-        <%= f.radio_button :new, true, class: "form-control" %>
-        <small class="">Używany</small>
-        <%= f.radio_button :new, false, class: "form-control" %>
+      <div class="col-sm-4">
+        <%= f.select :new, options_for_select([["Nowy", true], ["Używany", false]]), {}, { class: "form_field form-control" } %>
       </div>
-
+      
+      <%= f.label :size1, "Rozmiar 1", class: "col-sm-2 col-sm-offset-3 control-label", id: "size1" %>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <%= f.text_field :size1, class: "form_field form-control" %>
+          <span class="input-group-addon" id="jednostka1">cm</span>
+        </div>  
+      </div>
+      
+      <%= f.label :size2, "Rozmiar 2", class: "col-sm-2 col-sm-offset-3 control-label", id: "size2" %>
+      <div class="col-sm-4">
+        <div class="input-group">
+          <%= f.text_field :size2, class: "form_field form-control" %>
+          <span class="input-group-addon" id="jednostka2">cm</span>
+        </div>  
+      </div>
+      
+      <%= f.label :content, "Treść ogłoszenia", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">
+        <%= f.text_area :content, class: "form-control form_field", rows: "5" %>
+      </div>
+    
+      <div class="col-sm-4 col-sm-offset-5">
+        <%= f.submit "Wyślij ogłoszenie", class: "btn btn-reg" %>
+      </div>
       <% end %>
     </div>
+    
   </form>
 </div>

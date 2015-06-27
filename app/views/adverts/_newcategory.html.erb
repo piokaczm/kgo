@@ -1,8 +1,10 @@
 <div class="row">
   
-  <form class="form-horizontal">
+
     <div class="form-group">
       <%= form_for @advert do |f| %>
+      
+      <%= render 'shared/error_msg', object: f.object %>
       
       <%= f.label :category, "Kategoria", class: "col-sm-2 col-sm-offset-3 control-label" %>
       <div class="col-sm-4">
@@ -63,5 +65,5 @@
       <% end %>
     </div>
     
-  </form>
+
 </div>

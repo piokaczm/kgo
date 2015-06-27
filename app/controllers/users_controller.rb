@@ -15,12 +15,14 @@ class UsersController < ApplicationController
   def show
     if User.exists?(username: params[:username])
       @user = User.find_by(username: params[:username])
+      @adverts = @user.adverts.all
     elsif User.exists?(id: params[:id])
       @user = User.find_by(id: params[:id])
+      @adverts = @user.adverts.all
     else
       redirect_to root_path
       flash[:danger] = "Nie można znaleźć wskazanego użytkownika"
-    end
+    end    
   end
   
   def create

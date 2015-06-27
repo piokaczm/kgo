@@ -32,6 +32,11 @@
 
     <div class="col-sm-8" id="twoje_ogloszenia">
       <h5><strong>Twoje ogłoszenia:</strong></h5>
+      <% @adverts.each do |ad| %>
+      <ul>
+        <li><%= ad.title %></li>
+      </ul>
+      <% end %>
     </div>
   
   <% else %>
@@ -43,6 +48,11 @@
   
     <div class="col-sm-12" id="produkty_box">
       <h5><strong>Sprzedaje:</strong></h5>
+      <% @adverts.each do |ad| %>
+      <ul>
+        <li><%= ad.title %></li>
+      </ul>
+      <% end %>
     </div>
 
 

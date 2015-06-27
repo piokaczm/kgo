@@ -4,6 +4,7 @@ class AdvertsController < ApplicationController
   
   def new
     @advert = Advert.new
+    @user = current_user
   end
 
   def show
@@ -24,6 +25,22 @@ class AdvertsController < ApplicationController
   end
 
   def create
+    @advert = Advert.create(advert_params)
+    @user = current_user
+    if @advert.valid?
+      if params[:picture_id].present?
+        preloaded = Cloudinary::PreloadedFile.new(params[:picture_id])         
+        raise "Invalid upload signature" if !preloaded.valid?
+        @advert.save
+        @advert.picture = preloaded.identifier
+        flash[:success] = "Ogłoszenie zostało dodane"
+        redirect_to @user
+      end
+    else
+      @advert.save
+      flash.now[:danger] = "Niepoprawne ogłoszenie"
+      render 'new'
+    end      
   end 
 
   
@@ -33,7 +50,7 @@ class AdvertsController < ApplicationController
   private
   
   def advert_params
-    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :user_id, :new, :size1, :size2, :city, :category, :picture)
+    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :user_id, :new, :size1, :size2, :city, :category, :picture_id)
   end
 
   

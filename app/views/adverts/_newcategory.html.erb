@@ -27,18 +27,18 @@
         <%= f.select :new, options_for_select([["Nowy", true], ["Używany", false]]), {}, { class: "form_field form-control" } %>
       </div>
       
-      <%= f.label :size1, "Rozmiar 1", class: "col-sm-2 col-sm-offset-3 control-label", id: "size1" %>
+      <%= f.label :size1, "-", class: "col-sm-2 col-sm-offset-3 control-label", id: "size1" %>
       <div class="col-sm-4">
         <div class="input-group form_field">
-          <%= f.text_field :size1, class: "form_field form-control", id: "size1input" %>
+          <%= f.text_field :size1, class: "form_field form-control", id: "size1input", disabled: true %>
           <span class="input-group-addon" id="jednostka1">cm</span>
         </div>  
       </div>
       
-      <%= f.label :size2, "Rozmiar 2", class: "col-sm-2 col-sm-offset-3 control-label", id: "size2" %>
+      <%= f.label :size2, "-", class: "col-sm-2 col-sm-offset-3 control-label", id: "size2" %>
       <div class="col-sm-4">
         <div class="input-group form_field">
-          <%= f.text_field :size2, class: "form_field form-control", id: "size2input" %>
+          <%= f.text_field :size2, class: "form_field form-control", id: "size2input", disabled: true %>
           <span class="input-group-addon" id="jednostka2">cm</span>
         </div>  
       </div>
@@ -47,9 +47,18 @@
       <div class="col-sm-4">
         <%= f.text_area :content, class: "form-control form_field", rows: "5" %>
       </div>
+      
+      <%= f.label :picture, "Zdjęcie przedmiotu", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">
+        <%= cl_image_upload_tag :picture_id, :crop => :limit, width: 1000, height: 1000, class: "image_upload" %>
+      </div>
+      
+      <%= f.hidden_field :user_id, value: @user.id %>
+      <%= f.hidden_field :wojewodztwo, value: @user.wojewodztwo %>
+      <%= f.hidden_field :city, value: @user.city %>
     
       <div class="col-sm-4 col-sm-offset-5">
-        <%= f.submit "Wyślij ogłoszenie", class: "btn btn-reg" %>
+      <%= f.submit "Wyślij ogłoszenie", class: "btn btn-reg" %>
       </div>
       <% end %>
     </div>

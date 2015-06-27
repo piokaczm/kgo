@@ -15,6 +15,7 @@ gem 'turbolinks',   '2.3.0'
 gem 'jbuilder',     '2.2.3'
 gem 'carrierwave'
 gem 'cloudinary'
+gem 'jquery-fileupload-rails'
 gem 'sdoc',         '0.4.0', group: :doc
 
 group :development, :test do

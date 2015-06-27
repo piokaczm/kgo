@@ -2,7 +2,7 @@
   
 
     <div class="form-group">
-      <%= form_for @advert do |f| %>
+      <%= form_for @advert, :html => {:multipart => true} do |f| %>
       
       <%= render 'shared/error_msg', object: f.object %>
       
@@ -52,7 +52,8 @@
       
       <%= f.label :picture, "Zdjęcie przedmiotu", class: "col-sm-2 col-sm-offset-3 control-label" %>
       <div class="col-sm-4">
-        <%= cl_image_upload_tag :picture_id, :crop => :limit, width: 1000, height: 1000, class: "image_upload" %>
+        <%= f.hidden_field :picture_cache  %>
+        <%= f.file_field :picture, class: "form_field" %>
       </div>
       
       <%= f.hidden_field :user_id, value: @user.id %>

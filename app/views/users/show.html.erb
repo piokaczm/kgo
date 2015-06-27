@@ -34,7 +34,7 @@
       <h5><strong>Twoje ogłoszenia:</strong></h5>
       <% @adverts.each do |ad| %>
       <ul>
-        <li><%= ad.title %></li>
+        <li><%= link_to ad.title, ad %></li>
       </ul>
       <% end %>
     </div>

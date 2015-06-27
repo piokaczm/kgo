@@ -1,2 +1,39 @@
-<h1>Adverts#show</h1>
-<p>Find me in app/views/adverts/show.html.erb</p>
+<% provide(:title, @advert.title) %>
+
+<div class="row" id="tekst_tytul">
+  <h2 class="center"><%= @advert.title %></h2>
+</div>
+
+<div class="row" id="advert_content">
+  <div class="col-sm-5 col-sm-offset-2">
+    <%= cl_image_tag @advert.picture, crop: :fit, class: "img-responsive" %>
+  </div>
+  
+  <div class="col-sm-3">
+    
+    <div class="panel panel-default first-panel">
+      <div class="panel-heading">
+        <h3 class="panel-title">            
+        Podstawowe dane:
+        </h3>
+      </div>
+    <ul class="list-group">
+      <%= render "rozmiary" %>
+    </ul>
+  </div>         
+
+    
+  </div>
+  
+</div>
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2">
+    <div class="panel panel-default">
+      <div class="panel-body">
+        <%= @advert.content %>
+      </div>
+    </div>
+    </div>
+</div>
+

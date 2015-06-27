@@ -1,0 +1,94 @@
+<li class="list-group-item">
+Cena: <%= number_to_currency(@advert.price, unit: "PLN", separator: ",", delimiter: "", format: "%n %u") %>
+</li>
+
+<li class="list-group-item">
+Stan: <%= @advert.new == true ? "Nowy" : "Używany" %>
+</li>
+
+<% if @advert.category == 'rowery' %>
+
+<li class="list-group-item">
+Rura podsiodłowa: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item">
+  Długość ramy: <%= @advert.size2.to_i.to_s + " cm" %>
+</li>
+
+<% elsif @advert.category == 'ramy' %>
+
+<li class="list-group-item">
+Rura podsiodłowa: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item">
+Długość ramy: <%= @advert.size2.to_i.to_s + " cm" %>
+</li>
+
+<% elsif @advert.category == 'widelce' %>
+
+<li class="list-group-item">
+Długość sterówki: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item">
+Pod średnicę: <%= @advert.size2.to_s + " \"" %>
+</li>
+
+<% elsif @advert.category == 'korby' %>
+
+<li class="list-group-item">
+Długość ramienia: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item disabled">
+- 
+</li>
+
+<% elsif @advert.category == 'koła' %>
+
+<li class="list-group-item">
+Rozmiar: <%= @advert.size1.to_s + " \"" %>
+</li>
+<li class="list-group-item disabled">
+- 
+</li>
+
+<% elsif @advert.category == 'kierownice' %>
+
+<li class="list-group-item">
+Szerokość: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item">
+Średnica mocowania: <%= @advert.size2.to_s + " mm" %>
+</li>
+
+<% elsif @advert.category == 'mostki' %>
+
+<li class="list-group-item">
+Długość mostka: <%= @advert.size1.to_s + " mm" %>
+</li>
+<li class="list-group-item">
+Średnica mocowania: <%= @advert.size2.to_s + " mm" %>
+</li>
+
+<% elsif @advert.category == 'sztyce' %>
+
+<li class="list-group-item">
+Długość: <%= @advert.size1.to_s + " cm" %>
+</li>
+<li class="list-group-item">
+Średnica: <%= @advert.size2.to_s + " mm" %>
+</li>
+
+<% else %>
+
+<li class="list-group-item disabled">
+- 
+</li>
+<li class="list-group-item disabled">
+- 
+</li>
+
+<% end %>
+
+<li class="list-group-item">
+Lokalizacja: <%= @advert.city + ", " + @advert.wojewodztwo %>
+</li>

@@ -79,4 +79,24 @@ class AdvertTest < ActiveSupport::TestCase
     assert_not @advert.valid?
   end
   
+  test "size 2 doesn't need to be present in certain cases" do
+    @advert.category = "korby"
+    @advert.size2 = nil
+    assert @advert.valid?
+    @advert.category = "koła"
+    @advert.size2 = nil
+    assert @advert.valid?
+  end
+  
+  test "both sizes aren't needed in certain cases" do
+    @advert.category = "inne"
+    @advert.size1 = nil
+    @advert.size2 = nil
+    assert @advert.valid?
+    @advert.category = "siodła"
+    @advert.size1 = nil
+    @advert.size2 = nil
+    assert @advert.valid?
+  end
+  
 end

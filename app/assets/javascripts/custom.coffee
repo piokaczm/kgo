@@ -49,7 +49,7 @@ formChanger = ->
     else if selection == "kierownice"
       text_container1.text('Szerokość')
       jednostka1.text("cm")
-      text_container2("Średnica mocowania")
+      text_container2.text("Średnica mocowania")
       jednostka2.text("mm")
       input.prop('disabled', false)
       input1.prop('disabled', false)

@@ -1,7 +1,7 @@
 module AdvertsHelper
   
   def lista_kategorie
-    %w(rowery ramy widelece korby koła kierownice mostki sztyce siodła inne)
+    %w(rowery ramy widelce korby koła kierownice mostki sztyce siodła inne)
   end
   
   def lista_kategorie_select

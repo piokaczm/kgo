@@ -27,18 +27,9 @@ class AdvertsController < ApplicationController
   def create
     @user = current_user
     @advert = @user.adverts.build(advert_params)
-    if @advert.valid?
-      if params[:picture_id].present?
-        preloaded = Cloudinary::PreloadedFile.new(params[:picture_id])         
-        raise "Invalid upload signature" if !preloaded.valid?        
-        @advert.picture = preloaded.identifier
-        @advert.save
-        flash[:success] = "Ogłoszenie zostało dodane"
-        redirect_to @user
-      else
-        flash[:danger] = "Błąd ładowania zdjęcia"
-        redirect_to @user        
-      end
+    if @advert.save
+      flash[:success] = "Ogłoszenie zostało dodane"
+      redirect_to @user
     else
        render 'new'
     end      

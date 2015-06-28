@@ -9,6 +9,7 @@ class AdvertsController < ApplicationController
 
   def show
     @advert = Advert.find_by(id: params[:id])
+    @user = current_user
   end
 
   def edit

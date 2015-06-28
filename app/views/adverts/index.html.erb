@@ -1,8 +1,23 @@
 <% provide(:title, "Ogłoszenia") %>
 
-<h1>Adverts#index</h1>
-<ul>
-  <% @adverts.each do |ad| %>
-  <li><%= link_to ad.category, ad %></li>
-  <% end %>
-</ul>
+
+<div class="row">
+        
+  <h3 class="center"><%= @title %></h3>
+  
+        <% @adverts.each do |ad| %>
+          <div class="col-xs-6 col-sm-4 col-md-2">
+            <%= link_to ad, class: "thumbnail thumb-advert" do %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
+              <div class="caption">
+                <h5><strong><%= tytul_format(ad.title) %></strong></h5>
+                <p>Cena: <%= cena_format(ad.price) %></p>
+                <p><small>
+                  <%= opis_thumbnail(ad.content) + "..." %>
+                </small></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>        
+        
+  </div>

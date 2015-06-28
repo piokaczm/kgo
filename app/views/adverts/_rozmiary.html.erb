@@ -1,5 +1,5 @@
 <li class="list-group-item">
-Cena: <%= number_to_currency(@advert.price, unit: "PLN", separator: ",", delimiter: "", format: "%n %u") %>
+  Cena: <%= cena_format(@advert.price) %>
 </li>
 
 <li class="list-group-item">
@@ -38,17 +38,12 @@ Pod średnicę: <%= @advert.size2.to_s + " \"" %>
 <li class="list-group-item">
 Długość ramienia: <%= @advert.size1.to_s + " cm" %>
 </li>
-<li class="list-group-item disabled">
-- 
-</li>
+
 
 <% elsif @advert.category == 'koła' %>
 
 <li class="list-group-item">
 Rozmiar: <%= @advert.size1.to_s + " \"" %>
-</li>
-<li class="list-group-item disabled">
-- 
 </li>
 
 <% elsif @advert.category == 'kierownice' %>
@@ -80,15 +75,14 @@ Długość: <%= @advert.size1.to_s + " cm" %>
 
 <% else %>
 
-<li class="list-group-item disabled">
-- 
-</li>
-<li class="list-group-item disabled">
-- 
-</li>
+
 
 <% end %>
 
 <li class="list-group-item">
 Lokalizacja: <%= @advert.city + ", " + @advert.wojewodztwo %>
+</li>
+
+<li class="list-group-item">
+  Wystawione przez: <%= link_to @advert.user.username, @advert.user %>
 </li>

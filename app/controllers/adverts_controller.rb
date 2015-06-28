@@ -1,6 +1,6 @@
 class AdvertsController < ApplicationController
   
-  before_action :is_logged_in, only: [:new, :edit]
+  before_action :is_logged_in, only: [:new, :edit, :destroy]
   
   def new
     @advert = Advert.new
@@ -17,10 +17,13 @@ class AdvertsController < ApplicationController
   def index
     if Advert.exists?(category: params[:category])
       @adverts = Advert.where(category: params[:category])
+      @title = "Ogłoszenia w kategorii " + @adverts.first.category
     elsif Advert.exists?(wojewodztwo: params[:wojewodztwo])
       @adverts = Advert.where(wojewodztwo: params[:wojewodztwo])
+      @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
     else
       @adverts = Advert.all
+      @title = "Wszystkie ogłoszenia"
     end
   end
 
@@ -33,7 +36,7 @@ class AdvertsController < ApplicationController
         flash[:success] = "Ogłoszenie zostało dodane"
         redirect_to @user
       else
-        flash.now[:danger] = "Proszę załączyć zdjęcie"
+        flash.now[:danger] = "Proszę dołączyć zdjęcie"
         render 'new'
       end
     else
@@ -43,6 +46,12 @@ class AdvertsController < ApplicationController
 
   
   def update
+  end
+  
+  def destroy
+    Advert.find(params[:id]).destroy
+    flash[:success] = "Usunięto ogłoszenie"
+    redirect_to root_path
   end
   
   private

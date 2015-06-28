@@ -18,7 +18,7 @@ User.create!( name:  "Example User",
               activated_at: Time.zone.now              
   )
 
-99.times do |n|
+15.times do |n|
   name  = Faker::Name.name
   email = "example-#{n+1}@kupa.org"
   username = Faker::Internet.user_name
@@ -35,26 +35,28 @@ User.create!( name:  "Example User",
               activated_at: Time.zone.now)
 end
 
-15.times do |n|
+6.times do |n|
   title = Faker::Lorem.sentence
   content = Faker::Lorem.paragraph
   price = Faker::Number.digit
   wojewodztwo = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
-  type = %w(rowery ramy widelece korby koła kierownice mostki sztyce siodła inne)
+  type = %w(rowery ramy widelce korby kierownice mostki sztyce)
   size1 = Faker::Number.digit
   size2 = Faker::Number.digit
   city = Faker::Address.city
+  picture = open("http://res.cloudinary.com/kgo/image/upload/v1435488208/ao2spypvaco60umzcevz.jpg")
   new = [true, false]
-  user = (1..20).to_a
+  user = (1..10).to_a
   Advert.create!( title: title,
                   content: content,
                   price: price,
                   wojewodztwo: wojewodztwo[Random.new.rand(0..9)],
                   new: new[Random.new.rand(0..1)],
-                  category: type[Random.new.rand(0..9)],
+                  category: type[Random.new.rand(0..6)],
                   size1: size1,
                   size2: size2,
                   city: city,
-                  user_id: user.shift)
+                  user_id: user[Random.new.rand(0..9)],
+                  picture: picture)
 end
   

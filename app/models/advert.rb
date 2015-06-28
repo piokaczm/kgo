@@ -19,6 +19,7 @@ class Advert < ActiveRecord::Base
   validates :size2, numericality: true, :unless => :not_require_size2?
   validates :city, presence: true
   validates :category, presence: true, inclusion: { in: TYPELIST }
+  validates :picture, presence: true
   
   def self.types
     %w(Rower Rama Widelec Korba Kolo Kierownica Mostek Sztyca Siodlo Inne)

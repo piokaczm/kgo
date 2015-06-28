@@ -76,4 +76,10 @@ formChanger = ->
       input.prop('disabled', true)
       input1.prop('disabled', true)
       
+
+      
 $(window).bind('page:change', formChanger)
+
+
+
+

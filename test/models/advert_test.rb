@@ -6,7 +6,7 @@ class AdvertTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:piotr)
-    @advert = @user.adverts.build(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, category: "kierownice")
+    @advert = @user.adverts.create!(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, category: "kierownice", picture: "image/upload/v1435445437/kpuzgdrqvdjj0u8l0bxb.jpg")
   end
   
   
@@ -62,6 +62,7 @@ class AdvertTest < ActiveSupport::TestCase
     @advert.size1 = @advert.size2 = 55
     assert @advert.valid?
   end
+  
   
   test "order should be from most to least recent" do
     assert_equal adverts(:one), Advert.first

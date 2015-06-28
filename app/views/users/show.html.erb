@@ -32,12 +32,25 @@
 
     <div class="col-sm-8" id="twoje_ogloszenia">
       <h5><strong>Twoje ogłoszenia:</strong></h5>
-      <% @adverts.each do |ad| %>
-      <ul>
-        <li><%= link_to ad.title, ad %></li>
-      </ul>
-      <% end %>
-    </div>
+      <div class="row">
+        
+        <% @adverts.each do |ad| %>
+          <div class="col-md-4">
+            <%= link_to ad, class: "thumbnail thumb-advert" do %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
+              <div class="caption">
+                <h5><strong><%= tytul_format(ad.title) %></strong></h5>
+                <p>Cena: <%= cena_format(ad.price) %></p>
+                <p><small>
+                  <%= opis_thumbnail(ad.content) + "..." %>
+                </small></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>        
+        
+      </div>
+  
   
   <% else %>
   
@@ -46,13 +59,30 @@
       <p id="user_dane"><%= @user.name + ", " + @user.city %></p>
     </div>
   
-    <div class="col-sm-12" id="produkty_box">
-      <h5><strong>Sprzedaje:</strong></h5>
-      <% @adverts.each do |ad| %>
-      <ul>
-        <li><%= ad.title %></li>
-      </ul>
-      <% end %>
+    <div class="row">
+      <div class="col-sm-12" id="produkty_box">
+        <h5><strong>Sprzedaje:</strong></h5>
+        
+        <div class="row">
+        
+        <% @adverts.each do |ad| %>
+          <div class="col-md-3">
+            <%= link_to ad, class: "thumbnail thumb-advert" do %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
+              <div class="caption">
+                <h5><strong><%= tytul_format(ad.title) %></strong></h5>
+                <p>Cena: <%= cena_format(ad.price) %></p>
+                <p><small>
+                  <%= opis_thumbnail(ad.content) + "..." %>
+                </small></p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>        
+        
+      </div>
+        
+      </div>
     </div>
 
 

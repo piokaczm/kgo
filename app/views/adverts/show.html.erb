@@ -42,7 +42,7 @@
     </div>
 </div>
 
-<% if @user.id == @advert.user.id %>
+<% if logged_in? && @user.id == @advert.user.id %>
 <div class="row">
   <div class="col-sm-2">
     <%= link_to "Usuń ogłoszenie", @advert, method: :delete, data: { confirm: "Czy chesz usunąć to ogłoszenie (#{@advert.title})?" } %>

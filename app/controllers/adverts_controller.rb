@@ -13,6 +13,8 @@ class AdvertsController < ApplicationController
   end
 
   def edit
+    @advert = Advert.find_by(id: params[:id])
+    @user = current_user
   end
 
   def index
@@ -47,6 +49,13 @@ class AdvertsController < ApplicationController
 
   
   def update
+    @advert = Advert.find_by(id: params[:id])
+    if @advert.update_attributes(advert_params)
+      flash[:success] = "Ogłoszenie zostało zaaktualizowane"
+      redirect_to @advert
+    else
+      render 'edit'
+    end
   end
   
   def destroy

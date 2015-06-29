@@ -11,10 +11,10 @@
         Nowa wiadomość do <%= @advert.user.username %></h4>
         
       </div>
-      <%= form_for @mail do |f| %>
+      <%= form_for @mail, remote: true do |f| %>
       <div class="modal-body">
         
-        
+        <%= render 'shared/error_msg', object: f.object %>
         <div class="form-group">
         <%= f.label :sender_email, "Twój e-mail", class: "control-label" %>
         <%= f.email_field :sender_email, class: "control-label form_field" %>

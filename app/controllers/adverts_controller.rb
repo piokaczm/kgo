@@ -1,6 +1,7 @@
 class AdvertsController < ApplicationController
   
   before_action :is_logged_in, only: [:new, :edit, :destroy]
+  before_action :authorized_user, only: [:edit, :update, :destroy]
   
   def new
     @advert = Advert.new
@@ -51,6 +52,7 @@ class AdvertsController < ApplicationController
   
   def update
     @advert = Advert.find_by(id: params[:id])
+    @user = current_user
     if @advert.update_attributes(advert_params)
       flash[:success] = "Ogłoszenie zostało zaaktualizowane"
       redirect_to @advert
@@ -79,5 +81,15 @@ class AdvertsController < ApplicationController
         redirect_to login_path
       end
     end
+  
+  def authorized_user
+    @user = current_user
+    @advert = Advert.find(params[:id])
+    unless @user.id == @advert.user.id
+        flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
+        redirect_to root_path
+      end
+
+  end
   
 end

@@ -1,6 +1,8 @@
 class AdvertContactsController < ApplicationController
   
-  def create
+  
+  
+  def create    
     @advert = Advert.find_by(id: params[:id])
     @mail = AdvertContact.new(mail_params)
     @mail.request = request
@@ -10,6 +12,9 @@ class AdvertContactsController < ApplicationController
     else
       flash[:danger] = "Nie udało się wysłać wiadomości"
       redirect_to @advert
+    end
+    respond_to do |format|
+      format.js
     end
   end
   

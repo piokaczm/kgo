@@ -11,6 +11,7 @@ class Advert < ActiveRecord::Base
   
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
+  validate  :dont_be_stupid
   validates :content, presence: true, length: { maximum: 1000 }
   validates :price, presence: true, numericality: true
   validates :wojewodztwo, presence: true, inclusion: { in: WOJLIST }
@@ -32,6 +33,20 @@ class Advert < ActiveRecord::Base
   def not_require_both_sizes?
     list = ["inne", "siodła"]
     list.include?(self.category)
+  end
+  
+  def dont_be_stupid
+    title = self.title.split(" ")
+    content = self.content.split(" ")
+    words = title + content
+    words.each do |word|
+      if word.length > 16
+        errors.add(:base, "za długie słowo głąbie -_-")
+        return false
+      else
+        true
+      end
+    end
   end
   
   

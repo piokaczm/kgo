@@ -4,9 +4,10 @@
 
 var do_on_load = function() {
   $('.dropdown').click(function(e){
-  $(this).find('.dropdown-menu').slideToggle();
+    $(this).find('.dropdown-menu').slideToggle();
   });
 }
+
 
 
 $(document).ready(do_on_load)

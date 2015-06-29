@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   get ':username' => 'users#show', as: 'user_profile'  
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit, :update, :create, :new]
+  resources :advert_contacts, only: [:create]
 
  
   # The priority is based upon order of creation: first created -> highest priority.

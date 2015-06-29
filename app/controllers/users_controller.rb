@@ -20,8 +20,8 @@ class UsersController < ApplicationController
       @user = User.find_by(id: params[:id])
       @adverts = @user.adverts.all
     else
-      redirect_to root_path
       flash[:danger] = "Nie można znaleźć wskazanego użytkownika"
+      redirect_to root_path      
     end    
   end
   

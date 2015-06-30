@@ -11,9 +11,22 @@ var do_on_load = function() {
   $(document).click(function() {
     $('.dropdown-menu').slideUp();
   });
-}
+  
+  
+  maxH = 0;
+  $('.thumb-advert').each(function() {
+    if ($(this).height() > maxH) {
+      maxH = $(this).height();
+    }
+  });
+  
+  $('.thumb-advert').each(function() {
+    $(this).height(maxH);
+  });
+  
+};
 
 
 
-$(document).ready(do_on_load)
-$(window).bind('page:load', do_on_load)
+$(document).ready(do_on_load);
+$(window).bind('page:load', do_on_load);

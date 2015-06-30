@@ -5,6 +5,7 @@
 var do_on_load = function() {
   $('.dropdown').click(function(e){
     $(this).find('.dropdown-menu').slideToggle();
+    $('.dropdown').not(this).find('.dropdown-menu').slideUp();
     e.stopPropagation();
   });
   

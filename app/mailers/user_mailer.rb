@@ -19,4 +19,11 @@ class UserMailer < ApplicationMailer
     @user = user
     mail to: user.email, subject: "Reset hasła"
   end
+  
+  def contact_form(message)
+    @message = message
+    
+    mail from: message.sender_email, to: message.receiver_email, subject: "Pytanie dotyczące #{message.subject}"
+  end
+  
 end

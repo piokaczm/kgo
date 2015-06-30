@@ -1,21 +1,15 @@
-class AdvertContact < MailForm::Base
-  
-  attribute :name,      :validate => true
-  attribute :sender_email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-  attribute :receiver_email,     :validate => /\A([\w\.%\+\-]+)@([\w\-]+\.)+([\w]{2,})\z/i
-  attribute :content
-  attribute :nickname,  :captcha  => true
-  attribute :subject, :validate => true
+class AdvertContact
 
-  # Declare the e-mail headers. It accepts anything the mail method
-  # in ActionMailer accepts.
-  def headers
-    {
-      :subject => "#{subject}",
-      :to => "#{receiver_email}",
-      :from => %("#{name}" <#{sender_email}>)
-    }
-  end
+  include ActiveModel::Model
+  include ActiveModel::Conversion
+  include ActiveModel::Validations
+
+  attr_accessor :name, :sender_email, :receiver_email, :content, :subject
+
+  validates :name, presence: true
+  validates :sender_email, presence: true
+  validates :content, presence: true
+  validates :subject, presence: true
+  validates :receiver_email, presence: true
+
 end
-  
-

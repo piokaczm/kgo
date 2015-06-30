@@ -11,7 +11,7 @@
         Nowa wiadomość do <%= @advert.user.username %></h4>
         
       </div>
-      <%= form_for @mail, remote: true do |f| %>
+      <%= form_for @mail do |f| %>
       <div class="modal-body">
         
         <%= render 'shared/error_msg', object: f.object %>
@@ -32,12 +32,11 @@
       <div class="hidden">
         <%= f.hidden_field :receiver_email, value: @advert.user.email %>
         <%= f.hidden_field :subject, value: @advert.title %>
-        <%= f.hidden_field :nickname %>
       </div>
       
       <div class="modal-footer">
       
-        <%= f.submit "Wyślij wiadomość", type: 'button', class: 'btn' %>
+        <%= f.submit "Wyślij wiadomość", class: 'btn' %>
        
       </div>
         <% end %>

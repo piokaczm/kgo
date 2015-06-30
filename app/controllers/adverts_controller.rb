@@ -12,6 +12,10 @@ class AdvertsController < ApplicationController
     @advert = Advert.find_by(id: params[:id])
     @user = current_user
     @mail = AdvertContact.new
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   def edit

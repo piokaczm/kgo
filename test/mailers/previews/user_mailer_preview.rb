@@ -14,5 +14,14 @@ class UserMailerPreview < ActionMailer::Preview
     user.reset_token = User.new_token
     UserMailer.password_reset(user)
   end
+  
+  def contact_form
+    message = AdvertContact.new( name: "Piotr",
+                sender_email: "pika@pio.pl",
+                content: "Cipka duapka cycki",
+                subject: "Cycuchy",
+                receiver_email: "piczkon@picze.pl" )
+    UserMailer.contact_form(message)
+  end
 
 end

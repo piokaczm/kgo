@@ -83,6 +83,12 @@ Długość: <%= @advert.size1.to_s + " cm" %>
 Lokalizacja: <%= @advert.city + ", " + @advert.wojewodztwo %>
 </li>
 
-<li class="list-group-item">
+<li class="list-group-item wystawione_przez">
   Wystawione przez: <%= link_to @advert.user.username, @advert.user %>
 </li>
+
+<% unless logged_in? && @user.id == @advert.user.id %>
+<li class="list-group-item btn message" data-toggle="modal" data-target="#contact_form"> 
+    Wyślij zapytanie 
+</li>
+<% end %>  

@@ -2,6 +2,10 @@
 @import "bootstrap"
 
 $gray-light: #d8d8d8
+$base-blue: #0B94FD
+$base-green: #04d27a
+$hover-green: #32e89b
+$nav-hover: #d6d6d6
 
 
 
@@ -68,14 +72,14 @@ body
         
 .btn
   border-radius: 0%
-  background-color: #04d27a
-  border-color: #03a861  
+  background-color: $base-green
+  border: 0px 
   color: white
   transition: all 0.2s ease
   &:hover
     color: white
     background-color: #32e89b
-    border-color: #00dd7e
+
 
 .glyphicon
   color: white
@@ -260,3 +264,26 @@ select, .form_field, .uneditable-input
   
 .first-panel
   margin-bottom: 40px
+
+/* THUMBNAILSY */
+
+.thumb-advert
+  border-radius: 0px !important
+  &:hover
+    border: 1px solid $base-green !important
+  
+/* OGLOSZENIA */
+
+.square
+  border-radius: 0px
+
+.message
+  color: black
+  background-color: $gray-lighter
+  border-radius: 0px !important
+  
+.wystawione_przez
+  a
+    color: $base-green
+    &:hover
+      color: black

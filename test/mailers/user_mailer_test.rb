@@ -24,15 +24,14 @@ class UserMailerTest < ActionMailer::TestCase
   test "contact_form" do
     @user = users(:piotr)
     @advert = adverts(:one)
-    message = { name: "Piotr",
+    @message = AdvertContact.new( name: "Piotr",
                 sender_email: "pika@pio.pl",
                 content: "Cipka duapka cycki",
                 subject: @advert.title,
-                receiver_email: @user.email}
-    mail = UserMailer.contact_form(message)
-    assert_equal @user.email, mail.to
-    assert_equal "pika@pio.pl", mail.from
-    assert_ewual "Cipa duapka cycki", mail.body.encoded
+                receiver_email: @user.email)
+    mail = UserMailer.contact_form(@message)
+    assert_equal ["pioka@gmail.com"], mail.to
+    assert_equal ["pika@pio.pl"], mail.from
   end
       
   

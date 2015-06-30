@@ -1,0 +1,5 @@
+Dostałeś wiadomość dotyczącą Twojego ogłoszenia "<%= @message.subject %>". </br>
+
+Od: <%= @message.name + " | " + @message.sender_email %> </br>
+
+<%= simple_format(@message.content) %>

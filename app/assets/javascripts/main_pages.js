@@ -5,6 +5,11 @@
 var do_on_load = function() {
   $('.dropdown').click(function(e){
     $(this).find('.dropdown-menu').slideToggle();
+    e.stopPropagation();
+  });
+  
+  $(document).click(function() {
+    $('.dropdown-menu').slideUp();
   });
 }
 

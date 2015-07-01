@@ -70,11 +70,13 @@
           <% else %>
           
           <li><%= link_to rejestracja_path do %>
-                <span class="glyphicon glyphicon-user"></span> Rejestracja
+                <span class="glyphicon glyphicon-user"></span><p class="hidden-sm inline">
+            Rejestracja</p>
               <% end %>
           </li>
           <li><%= link_to login_path do %>
-            <span class="glyphicon glyphicon-log-in"></span> Login
+            <span class="glyphicon glyphicon-log-in"></span><p class="hidden-sm inline">
+            Login</p>
             <% end %>
           </li>
           

@@ -3,27 +3,34 @@
 //You can use CoffeeScript in this file: http://coffeescript.org/
 
 var do_on_load = function() {
-  $('.dropdown').click(function(e){
-    $(this).find('.dropdown-menu').slideToggle();
-    $('.dropdown').not(this).find('.dropdown-menu').slideUp();
-    e.stopPropagation();
+  
+  $('body').waitForImages(function() {
+      maxH = 0;
+    $('.thumb-advert').each(function() {
+      if ($(this).height() > maxH) {
+        maxH = $(this).height();
+      }
+    });
+
+    $('.thumb-advert').each(function() {
+      $(this).height(maxH);
+    });
   });
   
-  $(document).click(function() {
-    $('.dropdown-menu').slideUp();
-  });
   
   
-  maxH = 0;
-  $('.thumb-advert').each(function() {
-    if ($(this).height() > maxH) {
-      maxH = $(this).height();
-    }
-  });
+$('.dropdown').on('show.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+    });
+
+  // ADD SLIDEUP ANIMATION TO DROPDOWN //
+  $('.dropdown').on('hide.bs.dropdown', function(e){
+    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+    });
+
   
-  $('.thumb-advert').each(function() {
-    $(this).height(maxH);
-  });
+  
+
   
 };
 

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require cloudinary
+//= require jquery.waitforimages.min
 //= require turbolinks
 //= require bootstrap-sprockets
 //= require_tree .

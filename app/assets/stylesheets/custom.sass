@@ -281,8 +281,12 @@ select, .form_field, .uneditable-input
 
 .thumb-advert
   border-radius: 0px !important
+  transition: transform 0.05s ease
+  transition: border-color 0.2s ease
   &:hover
     border: 1px solid $base-green !important
+  &:active
+    transform: translate(0px, 4px)
   
   
 /* OGLOSZENIA */

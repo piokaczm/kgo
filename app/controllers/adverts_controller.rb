@@ -40,15 +40,9 @@ class AdvertsController < ApplicationController
   def create
     @user = current_user
     @advert = @user.adverts.build(advert_params)
-    if @advert.valid?
-      if !@advert.picture.nil?
-        @advert.save
-        flash[:success] = "Ogłoszenie zostało dodane"
-        redirect_to @user
-      else
-        flash.now[:danger] = "Proszę dołączyć zdjęcie"
-        render 'new'
-      end
+    if @advert.save
+      flash[:success] = "Ogłoszenie zostało dodane"
+      redirect_to @user
     else
        render 'new'
     end      

@@ -31,6 +31,7 @@ class AdvertsController < ApplicationController
       @adverts = Advert.where(wojewodztwo: params[:wojewodztwo])
       @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
     else
+      flash.now[:info] = "Nie znaleziono ogłoszeń w podanej kategorii"
       @adverts = Advert.all
       @title = "Wszystkie ogłoszenia"
     end
@@ -89,7 +90,7 @@ class AdvertsController < ApplicationController
   def authorized_user
     @user = current_user
     @advert = Advert.find(params[:id])
-    unless @user.id == @advert.user.id
+    unless @user.id == @advert.user.id || @user.admin?
         flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
         redirect_to root_path
       end

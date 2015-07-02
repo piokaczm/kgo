@@ -42,11 +42,11 @@
     </div>
 </div>
 
-<% if logged_in? && @user.id == @advert.user.id %>
+<% if logged_in? && (@user.id == @advert.user.id || @user.admin?) %>
 <div class="row">
-  <div class="col-sm-2">
-    <%= link_to "Usuń ogłoszenie", @advert, method: :delete, data: { confirm: "Czy chesz usunąć to ogłoszenie (#{@advert.title})?" } %>
-    <%= link_to "Edytuj ogłoszenie", edit_advert_path(@advert) %>
+  <div class="col-sm-4 col-sm-offset-2">
+    <%= link_to "Usuń ogłoszenie", @advert, method: :delete, data: { confirm: "Czy chesz usunąć to ogłoszenie (#{@advert.title})?" }, type: 'button', class: 'btn btn-advert-edit' %>
+    <%= link_to "Edytuj ogłoszenie", edit_advert_path(@advert), type: 'button', class: 'btn btn-advert-edit' %>
   </div>
 </div>
 <% end %>

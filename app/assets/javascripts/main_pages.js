@@ -18,17 +18,20 @@ var do_on_load = function() {
   });
   
   
-  
-$('.dropdown').on('show.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
-    });
+  if ($('.navbar-toggle').is(':visible') == false) {
+    
+    $('.dropdown').on('show.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideDown();
+        });
 
-  // ADD SLIDEUP ANIMATION TO DROPDOWN //
-  $('.dropdown').on('hide.bs.dropdown', function(e){
-    $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
-    });
-  
+      // ADD SLIDEUP ANIMATION TO DROPDOWN //
+      $('.dropdown').on('hide.bs.dropdown', function(e){
+        $(this).find('.dropdown-menu').first().stop(true, true).slideUp();
+        });
+
+    };
 };
+  
 
 $.fn.resize_thumb = function(element) {
   maxH = 0;

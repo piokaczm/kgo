@@ -1,9 +1,10 @@
 class Advert < ActiveRecord::Base
   
-  mount_uploader :picture, AdvertPhotoUploader
+  include Elasticsearch::Model
+  include Elasticsearch::Model::Callbacks
   
-  belongs_to :user
-  
+  mount_uploader :picture, AdvertPhotoUploader  
+  belongs_to :user  
   default_scope -> { order(created_at: :desc) }
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)

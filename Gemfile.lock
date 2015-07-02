@@ -72,10 +72,25 @@ GEM
     debugger-linecache (1.2.0)
     domain_name (0.5.24)
       unf (>= 0.0.5, < 1.0.0)
+    elasticsearch (1.0.12)
+      elasticsearch-api (= 1.0.12)
+      elasticsearch-transport (= 1.0.12)
+    elasticsearch-api (1.0.12)
+      multi_json
+    elasticsearch-model (0.1.7)
+      activesupport (> 3)
+      elasticsearch (> 0.4)
+      hashie
+    elasticsearch-rails (0.1.7)
+    elasticsearch-transport (1.0.12)
+      faraday
+      multi_json
     erubis (2.7.0)
     execjs (2.5.2)
     faker (1.4.2)
       i18n (~> 0.5)
+    faraday (0.9.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.9.9)
     formatador (0.2.5)
     globalid (0.3.5)
@@ -92,6 +107,7 @@ GEM
     guard-minitest (2.3.1)
       guard (~> 2.0)
       minitest (>= 3.0)
+    hashie (3.4.2)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
     i18n (0.7.0)
@@ -131,6 +147,7 @@ GEM
       minitest (>= 5.0)
       ruby-progressbar
     multi_json (1.11.1)
+    multipart-post (2.0.0)
     nenv (0.2.0)
     netrc (0.10.3)
     nokogiri (1.6.6.2)
@@ -238,6 +255,8 @@ DEPENDENCIES
   carrierwave
   cloudinary
   coffee-rails (= 4.1.0)
+  elasticsearch-model
+  elasticsearch-rails
   faker (= 1.4.2)
   guard-minitest (= 2.3.1)
   jbuilder (= 2.2.3)

@@ -17,6 +17,8 @@ gem 'carrierwave'
 gem 'cloudinary'
 gem 'jquery-fileupload-rails'
 gem 'mail_form'
+gem 'elasticsearch-model'
+gem 'elasticsearch-rails'
 gem 'sdoc',         '0.4.0', group: :doc
 
 group :development, :test do

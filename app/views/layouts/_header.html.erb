@@ -11,16 +11,18 @@
       </div>
       <div class="collapse navbar-collapse" id="my_navbar">
         
-        <form class="navbar-form navbar-left" role="search">
+          <%= form_tag szukaj_path, method: :get, :class => "navbar-form navbar-left", role: 'search' do |f| %>
           <div class="input-group">
-            <input type="text" class="form-control" placeholder="Szukaj...">
+            
+            <%= text_field_tag :query, params[:query], class:"form-control", placeholder: "Szukaj..." %>
             <span class="input-group-btn">
-              <button class="btn btn-default" id="search-btn" type="button">
-                <span class="glyphicon glyphicon glyphicon-search"></span>
-              </button>
+              <%= button_tag type: 'submit', class: "btn", id: "search-btn" do %>
+                <span class='glyphicon glyphicon glyphicon-search'></span>
+              <% end %>
             </span>
+            
           </div>
-        </form>
+          <% end %>
         
         <ul class="nav navbar-nav navbar-left">
           <li class="dropdown">

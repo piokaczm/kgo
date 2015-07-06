@@ -9,8 +9,7 @@ $base-green: #04d27a
 $hover-green: #32e89b
 $nav-hover: #d6d6d6
 
-#content
-  min-height: 90% !important
+
 
 /* MOBILE */
 
@@ -24,6 +23,9 @@ $nav-hover: #d6d6d6
   position: relative
   top: 50%
   transform: translateY(-50%)
+  
+.full-width
+  width: 100%
 
 
 /* TypOGRAPHY */
@@ -50,8 +52,12 @@ h1, h2, h3
 
 /* GLOBAL |BODY + NAVBAR |*/
 
+
+
 a
   color: $base-green
+  &:hover
+    color: black
 
 .alert
   border-radius: 0px
@@ -59,7 +65,8 @@ a
 body
   padding-top: 70px
   
-
+.glyphicon
+  transition: all 0.2s ease
   
 .navbar
   background-color: #04d27a  

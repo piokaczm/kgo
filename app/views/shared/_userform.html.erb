@@ -22,9 +22,9 @@
     
     <%= f.label :Powtórz_hasło %>
     <%= f.password_field :password_confirmation, class: "form_field form-control"  %>
-    
-    <%= f.submit logged_in? ? "Zapisz zmiany" : "Stwórz konto", class: "btn btn-reg btn-advert-edit" %>
-    
+    <div class="send-container">
+      <%= f.submit logged_in? ? "Zapisz zmiany" : "Stwórz konto", class: "btn btn-reg btn-send btn-advert-edit" %>
+    </div>
     <% end %>
     
   </div>

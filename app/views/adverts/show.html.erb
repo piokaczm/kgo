@@ -2,6 +2,7 @@
 
 <div class="row" id="tekst_tytul">
   <h2 class="center"><%= @advert.title %></h2>
+  <small><%= link_to "Powrót do '#{@advert.category}'", adverts_path(category: @advert.category) %></small>
 </div>
 
 <%= render 'contact' %>

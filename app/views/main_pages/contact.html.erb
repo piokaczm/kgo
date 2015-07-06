@@ -37,9 +37,9 @@
       <%= f.label :content, "Treść wiadomości", class: "control-label" %>
       <%= f.text_area :content, class: "control-label form_field", rows: "5" %>
     </div>
-
-    <%= f.submit "Wyślij wiadomość", class: 'btn message' %>
-
+    <div class="send-container">
+      <%= f.submit "Wyślij wiadomość", class: 'btn message btn-send' %>
+    </div>
     <% end %>
   
   </div>

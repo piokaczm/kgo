@@ -30,6 +30,13 @@ var do_on_load = function() {
         });
 
     };
+  
+  $('.span-hover').on('mouseenter', function (){
+    $(this).find('span').css('color', '#d6d6d6');
+  }).on('mouseleave', function() {
+    $(this).find('span').css('color', 'white');
+  });
+  
 };
   
 

@@ -60,8 +60,8 @@
       <%= f.hidden_field :wojewodztwo, value: @user.wojewodztwo %>
       <%= f.hidden_field :city, value: @user.city %>
     
-      <div class="col-sm-4 col-sm-offset-5">
-      <%= f.submit "Wyślij ogłoszenie", class: "btn btn-reg" %>
+      <div class="col-sm-4 col-sm-offset-5 send-container">
+        <%= f.submit "Wyślij ogłoszenie", class: "btn btn-reg btn-send" %>
       </div>
       <% end %>
     </div>

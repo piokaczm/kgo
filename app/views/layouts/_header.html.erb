@@ -53,17 +53,17 @@
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
           
-          <li><%= link_to new_advert_path do %>
+          <li class='span-hover'><%= link_to new_advert_path do %>
             <span class="glyphicon glyphicon-plus"></span>
             <p class="hidden-sm inline"> Ogłoszenie</p>
             <% end %>
           </li>
-          <li><%= link_to @current_user do %>
+          <li class='span-hover'><%= link_to @current_user do %>
             <span class="glyphicon glyphicon-user"></span>
             <p class="hidden-sm inline"> Profil</p>
             <% end %>
           </li>
-          <li><%= link_to logout_path, method: :delete do %>
+          <li class='span-hover'><%= link_to logout_path, method: :delete do %>
             <span class="glyphicon glyphicon-log-out"></span>
             <p class="hidden-sm inline"> Wyloguj</p>
             <% end %>
@@ -71,12 +71,12 @@
           
           <% else %>
           
-          <li><%= link_to rejestracja_path do %>
+          <li class='span-hover'><%= link_to rejestracja_path do %>
                 <span class="glyphicon glyphicon-user"></span><p class="hidden-sm inline">
             Rejestracja</p>
               <% end %>
           </li>
-          <li><%= link_to login_path do %>
+          <li class='span-hover'><%= link_to login_path do %>
             <span class="glyphicon glyphicon-log-in"></span><p class="hidden-sm inline">
             Login</p>
             <% end %>

@@ -26,4 +26,10 @@ class UserMailer < ApplicationMailer
     mail from: message.sender_email, to: message.receiver_email, subject: "Pytanie dotyczące #{message.subject}"
   end
   
+  def contact_me(sender)
+    @sender = sender
+    mail from: sender.email, to: 'piokaczm@gmail.com', subject: "Kontakt: #{sender.subject}"
+  end
+    
+  
 end

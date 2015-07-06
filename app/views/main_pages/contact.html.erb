@@ -1,3 +1,50 @@
 <% provide(:title, "Kontakt") %>
-<h1>Kontakt</h1>
-<p>Find me in app/views/main_pages/contact.html.erb</p>
+<h1 class="center">Kontakt</h1>
+
+<div class="row">
+  
+  <div class='col-sm-4 col-md-2 col-sm-offset-2 col-md-offset-3' id='contact-text'>
+    <p>
+      <strong>Zapraszamy do kontaktu z nami!</strong> 
+    </p>  
+    <p>  
+      Za pomocą formularza po prawej stronie możesz
+      przesłać swoją opinię, prośbę, zapytanie o współpracę, czy zgłoszenie błędu.
+      Wiadomość zostanie przesłana bezpośrednio do twórcy serwisu, a jedyne o co prosimy
+      to przemyślany dobór tematu wiadomości.
+    </p>
+    <p>
+      Jeżeli chcesz dowiedzieć się więcej o twórcy, zapraszamy 
+      <%= link_to "tutaj", 'http://steinerstore.pl/portfolio/index.html' %>.
+    </p>
+  </div>
+  
+  <div class='col-sm-6' id="form-contact">
+  
+    <%= form_for @contact do |f| %>
+        
+    <%= render 'shared/error_msg', object: f.object %>
+    <div class="form-group">
+      <%= f.label :email, "Twój e-mail", class: "control-label" %>
+      <%= f.email_field :email, class: "control-label form_field" %>
+      <%= f.label :name, "Twoje imię", class: "control-label" %>
+      <%= f.text_field :name, class: "control-label form_field" %>
+      <%= f.label :subject, "Temat wiadomości" %>
+      <%= f.text_field :subject, class: "control-label form_field" %>
+    </div>
+        
+    <div class="form-gorup">
+      <%= f.label :content, "Treść wiadomości", class: "control-label" %>
+      <%= f.text_area :content, class: "control-label form_field", rows: "5" %>
+    </div>
+
+    <%= f.submit "Wyślij wiadomość", class: 'btn message' %>
+
+    <% end %>
+  
+  </div>
+</div>
+
+        
+
+

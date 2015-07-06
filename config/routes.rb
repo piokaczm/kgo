@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :account_activations, only: [:edit]
   resources :password_resets, only: [:edit, :update, :create, :new]
   resources :advert_contacts, only: [:create]
+  resources :contact_mes, only: [:create]
 
  
   # The priority is based upon order of creation: first created -> highest priority.

@@ -1,5 +1,7 @@
 @import "bootstrap-sprockets"
 @import "bootstrap"
+@import "font-awesome-sprockets"
+@import "font-awesome"
 
 $gray-light: #d8d8d8
 $base-blue: #0B94FD
@@ -7,12 +9,21 @@ $base-green: #04d27a
 $hover-green: #32e89b
 $nav-hover: #d6d6d6
 
+#content
+  min-height: 90% !important
+
 /* MOBILE */
 
 .dropdown-menu
   li
     backgorund-color: white
   
+/* UTILITIES */
+
+.center-vertically
+  position: relative
+  top: 50%
+  transform: translateY(-50%)
 
 
 /* TypOGRAPHY */
@@ -39,12 +50,16 @@ h1, h2, h3
 
 /* GLOBAL |BODY + NAVBAR |*/
 
+a
+  color: $base-green
+
 .alert
   border-radius: 0px
   
 body
   padding-top: 70px
-  height: 100%
+  
+
   
 .navbar
   background-color: #04d27a  
@@ -200,7 +215,7 @@ select, .form_field, .uneditable-input
 
 .btn-log
   border-radius: 5px
-  margin-bottom: 10px
+  margin-bottom: 10px !important
   width: 100%
   color: white
   &:hover
@@ -334,7 +349,17 @@ select, .form_field, .uneditable-input
     
 .panel-square
   border-radius: 0px !important
+  border: 0px
   li
     margin-bottom: 10px
   a
     color: $base-green
+    
+#contact-text
+  margin-top: 30px
+  
+#form-contact
+  border-left: 1px solid $gray-lighter
+  margin-bottom: 35px
+  
+

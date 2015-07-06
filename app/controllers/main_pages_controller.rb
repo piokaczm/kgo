@@ -11,6 +11,7 @@ class MainPagesController < ApplicationController
   end
 
   def contact
+    @contact = ContactMe.new
   end
   
   def terms

@@ -96,4 +96,13 @@ class AdvertTest < ActiveSupport::TestCase
     assert @advert.valid?
   end
   
+  #test "should normalize price and size2" do
+  #  @advert.price = '12,2'
+  #  assert @advert.valid?
+  #  assert_equal 12.2, @advert.price
+  #  @advert.size2 = '43,2'
+  #  assert @advert.valid?
+  #  assert_equal 43.2, @advert.size2
+  #end
+  
 end

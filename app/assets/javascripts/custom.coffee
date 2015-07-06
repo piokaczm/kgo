@@ -18,7 +18,7 @@ formChanger = ->
       
     else if selection == 'ramy'
       text_container1.text("Rura podsiodłowa")
-      jednostka1.text("mm")
+      jednostka1.text("cm")
       text_container2.text("Długość ramy")
       jednostka2.text("cm")
       input.prop('disabled', false)

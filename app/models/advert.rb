@@ -1,11 +1,13 @@
 class Advert < ActiveRecord::Base
-  
+  include ActiveModel::Validations::Callbacks
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
   
   mount_uploader :picture, AdvertPhotoUploader  
   belongs_to :user  
   default_scope -> { order(created_at: :desc) }
+  
+ 
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
   TYPELIST = %w(rowery ramy widelce korby koła kierownice mostki sztyce siodła inne)
@@ -41,7 +43,7 @@ class Advert < ActiveRecord::Base
     content = self.content.split(" ")
     words = title + content
     words.each do |word|
-      if word.length > 16
+      if word.length > 16 && !word.include?('www')
         errors.add(:base, "za długie słowo głąbie -_-")
         return false
       else
@@ -49,6 +51,9 @@ class Advert < ActiveRecord::Base
       end
     end
   end
+  
+  
+      
   
   
 end

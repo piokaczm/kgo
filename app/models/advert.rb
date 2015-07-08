@@ -5,8 +5,12 @@ class Advert < ActiveRecord::Base
   
   mount_uploader :picture, AdvertPhotoUploader  
   belongs_to :user  
-  default_scope -> { order(created_at: :desc) }
   
+  scope :desc, -> { order(created_at: :desc) }  
+  scope :price, -> { order(price: :asc) }
+  scope :price_desc, -> { order(price: :desc) }
+  scope :size, -> { order(size1: :asc) }
+  scope :size_desc, -> { order(size2: :desc) }
  
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
@@ -44,7 +48,7 @@ class Advert < ActiveRecord::Base
     words = title + content
     words.each do |word|
       if word.length > 16 && !word.include?('www')
-        errors.add(:base, "za długie słowo głąbie -_-")
+        errors.add(:base, "Wprowadzono za długie słowo")
         return false
       else
         true

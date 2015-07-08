@@ -1,7 +1,7 @@
 class MainPagesController < ApplicationController
   
   def home
-    @adverts = Advert.all.order("id asc").limit(6)
+    @adverts = Advert.all.order("id desc").limit(6)
   end
 
   def help

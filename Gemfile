@@ -19,6 +19,7 @@ gem 'jquery-fileupload-rails'
 gem 'mail_form'
 gem 'elasticsearch-model'
 gem 'elasticsearch-rails'
+gem 'has_scope'
 gem 'font-awesome-sass', '~> 4.3.0'
 gem 'sdoc',         '0.4.0', group: :doc
 

@@ -1,5 +1,10 @@
 class AdvertsController < ApplicationController
   
+  has_scope :price, type: :boolean
+  has_scope :price_desc, type: :boolean
+  has_scope :size, type: :boolean
+  has_scope :size_desc, type: :boolean
+  
   before_action :is_logged_in, only: [:new, :edit, :destroy]
   before_action :authorized_user, only: [:edit, :update, :destroy]
   
@@ -23,16 +28,19 @@ class AdvertsController < ApplicationController
     @user = current_user
   end
 
-  def index
-    if Advert.exists?(category: params[:category])
-      @adverts = Advert.where(category: params[:category])
-      @title = "Ogłoszenia w kategorii " + @adverts.first.category
-    elsif Advert.exists?(wojewodztwo: params[:wojewodztwo])
-      @adverts = Advert.where(wojewodztwo: params[:wojewodztwo])
+  def index    
+    sort_list = ['price', 'price_desc', 'size', 'size_desc']
+    if Advert.exists?(wojewodztwo: params[:wojewodztwo])      
+      @adverts = apply_scopes(Advert).where(wojewodztwo: params[:wojewodztwo]) if (params.keys & sort_list).any?
+      @adverts = Advert.where(wojewodztwo: params[:wojewodztwo]).desc if !(params.keys & sort_list).any?
       @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
+    elsif Advert.exists?(category: params[:category])      
+      @adverts = apply_scopes(Advert).where(category:  params[:category]) if (params.keys & sort_list).any?
+      @adverts = Advert.where(category: params[:category]).desc if !(params.keys & sort_list).any?
+      @title = "Ogłoszenia w kategorii " + @adverts.first.category
     else
       flash.now[:info] = "Nie znaleziono ogłoszeń w podanej kategorii"
-      @adverts = Advert.all
+      @adverts = Advert.all.desc
       @title = "Wszystkie ogłoszenia"
     end
   end
@@ -88,7 +96,9 @@ class AdvertsController < ApplicationController
         flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
         redirect_to root_path
       end
-
+  end
+  
+  def params_list
   end
   
 end

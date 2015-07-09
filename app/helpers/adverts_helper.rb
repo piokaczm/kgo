@@ -23,15 +23,4 @@ module AdvertsHelper
     new_title = title[0..3].join(" ")
   end
   
-  def sort_category
-    if @adverts == Advert.where(wojewodztwo: params[:wojewodztwo]).desc
-      "wojewodztwo: #{@adverts.first.wojewodztwo}"
-    elsif @adverts == Advert.where(category: params[:category]).desc
-      "category: #{@adverts.first.category}"
-    else
-      nil
-    end
-  end
-    
-  
 end

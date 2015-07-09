@@ -33,14 +33,16 @@ class AdvertsController < ApplicationController
     if Advert.exists?(wojewodztwo: params[:wojewodztwo])      
       @adverts = apply_scopes(Advert).where(wojewodztwo: params[:wojewodztwo]) if (params.keys & sort_list).any?
       @adverts = Advert.where(wojewodztwo: params[:wojewodztwo]).desc if !(params.keys & sort_list).any?
+      @sort_type = 'wojewodztwo'
       @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
     elsif Advert.exists?(category: params[:category])      
       @adverts = apply_scopes(Advert).where(category:  params[:category]) if (params.keys & sort_list).any?
       @adverts = Advert.where(category: params[:category]).desc if !(params.keys & sort_list).any?
+      @sort_type = 'category'
       @title = "Ogłoszenia w kategorii " + @adverts.first.category
     else
       flash.now[:info] = "Nie znaleziono ogłoszeń w podanej kategorii"
-      @adverts = Advert.all.desc
+      @adverts = apply_scopes(Advert).all.desc
       @title = "Wszystkie ogłoszenia"
     end
   end

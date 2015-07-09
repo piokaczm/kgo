@@ -1,11 +1,62 @@
 <div class="row">
 
-  <p>
-    Cena:
-    <%= link_to adverts_path(price: true, wojewodztwo: "Śląskie") do %>
+  <% if @sort_type == 'wojewodztwo' %>
+  
+  <p><small>
+    Cena
+    <%= link_to adverts_path(price: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
     <i class="fa fa-caret-square-o-up"></i>
     <% end %>
-  </p>
+    <%= link_to adverts_path(price_desc: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+     | Rozmiar 
+    <%= link_to adverts_path(size: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
+    <i class="fa fa-caret-square-o-up"></i>
+    <% end %>
+    <%= link_to adverts_path(size_desc: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+  </small></p>
+  
+  <% elsif @sort_type == 'category' %>
+  
+  <p><small>
+    Cena
+    <%= link_to adverts_path(price: true, category: @adverts.first.category) do %>
+    <i class="fa fa-caret-square-o-up"></i>
+    <% end %>
+    <%= link_to adverts_path(price_desc: true, category: @adverts.first.category) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+     | Rozmiar 
+    <%= link_to adverts_path(size: true, category: @adverts.first.category) do %>
+    <i class="fa fa-caret-square-o-up"></i>
+    <% end %>
+    <%= link_to adverts_path(size_desc: true, category: @adverts.first.category) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+  </small></p>
+  
+  <% else %>
+  
+  <p><small>
+    Cena
+    <%= link_to adverts_path(price: true) do %>
+    <i class="fa fa-caret-square-o-up"></i>
+    <% end %>
+    <%= link_to adverts_path(price_desc: true) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+     | Rozmiar 
+    <%= link_to adverts_path(size: true) do %>
+    <i class="fa fa-caret-square-o-up"></i>
+    <% end %>
+    <%= link_to adverts_path(size_desc: true) do %>
+    <i class="fa fa-caret-square-o-down"></i>
+    <% end %>
+  </small></p>
 
+  <% end %>
   
 </div>

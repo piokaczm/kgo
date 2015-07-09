@@ -2,17 +2,21 @@
 
 <div class="row" id="tekst_tytul">
   <h2 class="center"><%= @advert.title %></h2>
-  <small><%= link_to "Powrót do '#{@advert.category}'", adverts_path(category: @advert.category) %></small>
+  <%= link_to :back do %>
+    <span class="glyphicon glyphicon-arrow-left"></span>
+  <% end %>
 </div>
 
 <%= render 'contact' %>
 
 <div class="row" id="advert_content">
   <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-2">
-    <%= link_to cloudinary_url(@advert.picture), class: "thumbnail thumb-advert" do %>
+    <a href='#' class="thumbnail thumb-show" data-toggle="modal" data-target="#imageModal">
     <%= cl_image_tag @advert.picture, crop: :fill, class: "img-responsive" %>
-    <% end %>
+    </a>
   </div>
+  
+  <%= render 'image_modal' %>
   
   <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-0">
     
@@ -32,7 +36,7 @@
 
 <div class="row">
   <div class="col-sm-8 col-sm-offset-2">
-    <div class="panel panel-default square">
+    <div class="panel panel-default panel-square">
       <div class="panel-heading advert-heading">
       <h3 class="panel-title">Opis:</h3>
       </div>

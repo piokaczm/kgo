@@ -1,21 +1,21 @@
-<div class="row">
-
+<div class="row" id="sort-row">
+  <div class='col-xs-12 col-sm-2' id="sort-container">
   <% if @sort_type == 'wojewodztwo' %>
   
   <p><small>
     Cena
     <%= link_to adverts_path(price: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(price_desc: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
      | Rozmiar 
     <%= link_to adverts_path(size: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(size_desc: true, wojewodztwo: @adverts.first.wojewodztwo) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
   </small></p>
   
@@ -24,17 +24,17 @@
   <p><small>
     Cena
     <%= link_to adverts_path(price: true, category: @adverts.first.category) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(price_desc: true, category: @adverts.first.category) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
      | Rozmiar 
     <%= link_to adverts_path(size: true, category: @adverts.first.category) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(size_desc: true, category: @adverts.first.category) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
   </small></p>
   
@@ -43,20 +43,20 @@
   <p><small>
     Cena
     <%= link_to adverts_path(price: true) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(price_desc: true) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
      | Rozmiar 
     <%= link_to adverts_path(size: true) do %>
-    <i class="fa fa-caret-square-o-up"></i>
+    <i class="fa fa-caret-square-o-up sort"></i>
     <% end %>
     <%= link_to adverts_path(size_desc: true) do %>
-    <i class="fa fa-caret-square-o-down"></i>
+    <i class="fa fa-caret-square-o-down sort"></i>
     <% end %>
   </small></p>
 
   <% end %>
-  
+  </div>
 </div>

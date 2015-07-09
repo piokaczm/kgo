@@ -306,6 +306,19 @@ select, .form_field, .uneditable-input
 .first-panel
   margin-bottom: 40px
 
+.glyphicon-arrow-left
+  color: $gray-light
+  transition: all 0.2s ease
+  &:hover
+    color: $base-green
+  
+#modal-img-dialog
+  text-align: center
+  width: auto
+  
+#modal-img
+  max-width: 100%
+  
 /* THUMBNAILSY */
 
 .thumb-advert
@@ -317,6 +330,12 @@ select, .form_field, .uneditable-input
   &:active
     transform: translate(0px, 4px)
   
+.thumb-show
+  border-radius: 0px !important
+  transition: border-color 0.2s ease
+  &:hover
+    border: 1px solid $base-green !important
+
   
 /* OGLOSZENIA */
 
@@ -373,3 +392,20 @@ select, .form_field, .uneditable-input
   margin-bottom: 35px
   
 
+/* ADVERT INDEX */
+
+.sort
+  color: $gray-light
+  transition: all 0.2s ease
+  &:hover
+    color: $base-green
+    text-decoration: none
+  
+#sort-container
+  p, a, small
+    &:hover
+      text-decoration: none
+    
+#sort-row
+  margin-bottom: 20px
+  border-bottom: 1px solid $gray-lighter

@@ -36,14 +36,6 @@ var do_on_load = function() {
   }).on('mouseleave', function() {
     $(this).find('span').css('color', 'white');
   });
-  
-  if ($('#modal-img-dialog').is(':visible') === true) {
-    $(document).click(function() {
-      $('#imageModal').modal('hide');
-    });
-  }
-      
-
 };
   
 
@@ -56,8 +48,8 @@ $.fn.resize_thumb = function(element) {
   });
   $(element).each(function() {
     $(this).height(maxH);
-  });
-};
+    });
+  };
 
 
 
@@ -66,4 +58,5 @@ $(window).bind('page:load', do_on_load);
 $(window).resize(function () {
   $('.thumb-advert').css('height', 'auto');
   $.fn.resize_thumb('.thumb-advert');
-});
+  }
+);

@@ -8,6 +8,7 @@
   <%= render 'sort' %>
 
 <div class="row">
+  
         <% @adverts.each do |ad| %>
           <div class="col-xs-6 col-sm-4 col-md-2">
             <%= link_to ad, class: "thumbnail thumb-advert" do %>
@@ -21,6 +22,12 @@
               </div>
             <% end %>
           </div>
-        <% end %>        
-        
+        <% end %>  
+  
+  <div class="col-xs-12 center">
+    <small>
+      <%= will_paginate :previous_label => "<", :next_label => ">" %>
+    </small>
   </div>
+        
+</div>

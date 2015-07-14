@@ -23,4 +23,5 @@ module AdvertsHelper
     new_title = title[0..3].join(" ")
   end
   
+  
 end

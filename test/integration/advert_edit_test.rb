@@ -8,7 +8,7 @@ class AdvertEditTest < ActionDispatch::IntegrationTest
   def setup
     @user = users(:piotr)
     @user2 = users(:cyc)
-    @advert = Advert.create(     title: "cyce",
+    @advert = Advert.create!(     title: "cyce",
                               category: "inne",
                               content: "asdlfkjfd lkjsdf lkjsdf",
                               price: 234,
@@ -16,7 +16,8 @@ class AdvertEditTest < ActionDispatch::IntegrationTest
                               new: true,
                               city: @user.city,
                               wojewodztwo: @user.wojewodztwo,
-                              id: 1)
+                              id: 1,
+                              picture: fixture_file_upload('/files/image.jpg', 'image/jpg'))
   end
   
   test "successful edit" do
@@ -30,7 +31,8 @@ class AdvertEditTest < ActionDispatch::IntegrationTest
                                             user_id: 1,
                                             new: true,
                                             city: @user.city,
-                                            wojewodztwo: @user.wojewodztwo}
+                                            wojewodztwo: @user.wojewodztwo,
+                                            picture: fixture_file_upload('/files/image.jpg', 'image/jpg')}
     end    
     get edit_advert_path(@advert)
     assert_template 'adverts/edit'
@@ -42,7 +44,8 @@ class AdvertEditTest < ActionDispatch::IntegrationTest
                                           user_id: 1,
                                           new: true,
                                           city: @user.city,
-                                          wojewodztwo: @user.wojewodztwo}
+                                          wojewodztwo: @user.wojewodztwo,
+                                          picture: fixture_file_upload('/files/image.jpg', 'image/jpg')}
     assert_redirected_to @advert
     follow_redirect!
     assert_not flash.empty?

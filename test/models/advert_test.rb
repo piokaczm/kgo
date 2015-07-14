@@ -6,7 +6,7 @@ class AdvertTest < ActiveSupport::TestCase
   # end
   def setup
     @user = users(:piotr)
-    @advert = @user.adverts.create!(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, category: "kierownice")
+    @advert = @user.adverts.create!(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, category: "kierownice", picture: fixture_file_upload('/files/image.jpg', 'image/jpg'))
   end
   
   
@@ -96,13 +96,19 @@ class AdvertTest < ActiveSupport::TestCase
     assert @advert.valid?
   end
   
-  #test "should normalize price and size2" do
-  #  @advert.price = '12,2'
-  #  assert @advert.valid?
-  #  assert_equal 12.2, @advert.price
-  #  @advert.size2 = '43,2'
-  #  assert @advert.valid?
-  #  assert_equal 43.2, @advert.size2
-  #end
+  test "should normalize price" do
+    @advert.price = '12,2'
+    @advert.save
+    assert_equal 12.2, @advert.price
+  end
+  
+  test "image should exist after upload" do
+    assert File.exists?(@advert.picture.file.path)  
+  end
+  
+  test "image should be present" do
+    advert = @user.adverts.create(title: "Cipka", content: "sdlkfjsd sfoisdf lksdjf", price: 119.99, wojewodztwo: @user.wojewodztwo, city: "tyszky", new: true, size1: 52, size2: 53.5, category: "kierownice", picture: nil)
+    assert_not advert.valid?
+  end
   
 end

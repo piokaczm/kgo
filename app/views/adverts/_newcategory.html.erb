@@ -56,7 +56,12 @@
         <%= f.file_field :picture, :crop => :limit, width: 1000, height: 1000, class: "form_field" %>
       </div>
       
+      <% if @advert.user.present? %>
+      <%= f.hidden_field :user_id, value: @advert.user.id %>
+      <% else %>
       <%= f.hidden_field :user_id, value: @user.id %>
+      <% end %>
+      
       <%= f.hidden_field :wojewodztwo, value: @user.wojewodztwo %>
       <%= f.hidden_field :city, value: @user.city %>
     

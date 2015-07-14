@@ -14,10 +14,10 @@
     
       <h5><strong>Twoje dane:</strong></h5><br>
 
-      <p>Imię:    <%= @current_user.name %></p>
-      <p>E-mail:    <%= @current_user.email %></p>
-      <p>Miejscowość:    <%= @current_user.city %></p>
-      <p>Województwo:    <%= @current_user.wojewodztwo %></p>
+      <p>Imię: <%= @current_user.name %></p>
+      <p>E-mail: <%= @current_user.email %></p>
+      <p>Miejscowość: <%= @current_user.city %></p>
+      <p>Województwo: <%= @current_user.wojewodztwo %></p>
       <%= link_to edit_user_path(current_user) do %>
       <button id="edytuj" type="button" class="btn btn-sm btn-profile btn-advert-edit">Edytuj dane</button> 
       <% end %>
@@ -37,7 +37,7 @@
         <% @adverts.each do |ad| %>
           <div class="col-md-4">
             <%= link_to ad, class: "thumbnail thumb-advert" do %>
-              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fit %>
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>
                 <p>Cena: <%= cena_format(ad.price) %></p>
@@ -68,7 +68,7 @@
         <% @adverts.each do |ad| %>
           <div class="col-md-3">
             <%= link_to ad, class: "thumbnail thumb-advert" do %>
-              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fit %>
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>
                 <p>Cena: <%= cena_format(ad.price) %></p>

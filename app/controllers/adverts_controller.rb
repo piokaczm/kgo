@@ -36,7 +36,7 @@ class AdvertsController < ApplicationController
       @sort_type = 'wojewodztwo'
       @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
     elsif Advert.exists?(category: params[:category])      
-      @adverts = apply_scopes(Advert).where(category:  params[:category]).page(params[:page]).per_page(18) if (params.keys & sort_list).any?
+      @adverts = apply_scopes(Advert).where(category: params[:category]).page(params[:page]).per_page(18) if (params.keys & sort_list).any?
       @adverts = Advert.where(category: params[:category]).desc.page(params[:page]).per_page(18) if !(params.keys & sort_list).any?
       @sort_type = 'category'
       @title = "Ogłoszenia w kategorii " + @adverts.first.category
@@ -49,7 +49,7 @@ class AdvertsController < ApplicationController
 
   def create
     @user = current_user
-    @advert = @user.adverts.build(advert_params)
+    @advert = @user.adverts.create(advert_params)
     if @advert.save
       flash[:success] = "Ogłoszenie zostało dodane"
       redirect_to @user
@@ -79,6 +79,10 @@ class AdvertsController < ApplicationController
   private
   
   def advert_params
+    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture, :user_id)
+  end
+  
+  def advert_params_update
     params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture)
   end
 
@@ -95,12 +99,11 @@ class AdvertsController < ApplicationController
     @user = current_user
     @advert = Advert.find(params[:id])
     unless @user.id == @advert.user.id || @user.admin?
-        flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
-        redirect_to root_path
-      end
-  end
+      flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
+      redirect_to root_path
+    end
+  end  
   
-  def params_list
-  end
+
   
 end

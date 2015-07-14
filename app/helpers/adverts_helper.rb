@@ -8,6 +8,10 @@ module AdvertsHelper
     return [["Proszę wybrać kategorię", nil], ["Rower", "rowery"], ['Rama', 'ramy'], ['Widelec', 'widelce'], ['Korba', 'korby'], ['Koło', 'koła'], ['Kierownica', 'kierownice'], ['Mostek', 'mostki'], ['Sztyca', 'sztyce'], ['Siodło', 'siodła'], ['Inne', 'inne']]
   end
   
+  def lista_rozmiar
+    [['rowery', "Rura podsiodłowa", 'cm',  'Długość', 'cm'], ['ramy', 'Rura podsiodłowa', 'cm', 'Długość', 'cm'], ['widelce', 'Rura sterowa', 'cm', 'Średnica', '"'], ['korby', 'Długość ramienia', 'cm'], ['koła', 'Rozmiar', '"'], ['kierownice', 'Szerokość', 'cm', 'Średnica mocowania', 'mm'], ['mostki', 'Długość', 'mm', 'Średnica mocowania', 'mm'], ['sztyce', 'Długość', 'cm', 'Średnica', 'mm'], ['siodła'], ['inne']]
+  end
+  
   def opis_thumbnail(opis)
     opis = opis.split(" ")
     new_opis = opis[0..8]
@@ -23,5 +27,8 @@ module AdvertsHelper
     new_title = title[0..3].join(" ")
   end
   
+  def parse_zeros(attr)
+    attr.to_i if attr == attr.to_i
+  end
   
 end

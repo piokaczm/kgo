@@ -337,10 +337,14 @@ select, .form_field, .uneditable-input
     transform: translate(0px, 4px)
   
 .thumb-show
-  border-radius: 0px !important
-  transition: border-color 0.2s ease
+  border: 0px !important
+  transition: all 0.2s ease
   &:hover
-    border: 1px solid $base-green !important
+    border: 0px
+    transform: scale(1.015)
+    -webkit-transform: scale(1.015)
+    -moz-transform: scale(1.015)
+    -ms-transform: scale(1.015)
 
   
 /* OGLOSZENIA */
@@ -366,6 +370,13 @@ select, .form_field, .uneditable-input
   background-color: $gray-lighter
   color: black
   margin-bottom: 30px
+  
+#show-advert
+  margin-bottom: 0px 
+  padding-bottom: 0px
+  
+#dane
+  border: 0px
   
   /* MAIN PAGES */
   

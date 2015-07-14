@@ -96,12 +96,6 @@ class AdvertTest < ActiveSupport::TestCase
     assert @advert.valid?
   end
   
-  test "should normalize price" do
-    @advert.price = '12,2'
-    @advert.save
-    assert_equal 12.2, @advert.price
-  end
-  
   test "image should exist after upload" do
     assert File.exists?(@advert.picture.file.path)  
   end

@@ -1,7 +1,7 @@
 <% provide(:title, @advert.title) %>
 
 <div class="row" id="tekst_tytul">
-  <h2 class="center"><%= @advert.title %></h2>
+  <h2 class="center" id="show-advert"><%= @advert.title %></h2>
   <%= link_to :back do %>
     <span class="glyphicon glyphicon-arrow-left"></span>
   <% end %>
@@ -10,7 +10,7 @@
 <%= render 'contact' %>
 
 <div class="row" id="advert_content">
-  <div class="col-sm-6 col-sm-offset-3 col-md-5 col-md-offset-2">
+  <div class="col-sm-8 col-sm-offset-2 col-md-8 col-md-offset-2">
     <a href='#' class="thumbnail thumb-show" data-toggle="modal" data-target="#imageModal">
     <%= cl_image_tag @advert.picture, crop: :fill, class: "img-responsive" %>
     </a>
@@ -18,9 +18,24 @@
   
   <%= render 'image_modal' %>
   
-  <div class="col-sm-6 col-sm-offset-3 col-md-3 col-md-offset-0">
+   
+</div>
+
+<div class="row">
+  <div class="col-sm-8 col-sm-offset-2 col-md-5">
+    <div class="panel panel-default panel-square" id="opis">
+      <div class="panel-heading advert-heading">
+      <h3 class="panel-title">Opis:</h3>
+      </div>
+      <div class="panel-body">
+        <%= simple_format(@advert.content) %>
+      </div>
+    </div>
+    </div>
+  
+  <div class="col-sm-8 col-sm-offset-2 col-md-3 col-md-offset-0">
     
-    <div class="panel panel-default first-panel square">
+    <div class="panel panel-default first-panel square" id="dane">
       <div class="panel-heading advert-heading">
         <h3 class="panel-title">            
         Podstawowe dane:
@@ -31,20 +46,8 @@
     </ul>
   </div> 
     
-  </div>  
-</div>
-
-<div class="row">
-  <div class="col-sm-8 col-sm-offset-2">
-    <div class="panel panel-default panel-square">
-      <div class="panel-heading advert-heading">
-      <h3 class="panel-title">Opis:</h3>
-      </div>
-      <div class="panel-body">
-        <%= simple_format(@advert.content) %>
-      </div>
-    </div>
-    </div>
+  </div> 
+  
 </div>
 
 <% if logged_in? && (@user.id == @advert.user.id || @user.admin?) %>

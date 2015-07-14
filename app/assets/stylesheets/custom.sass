@@ -329,12 +329,10 @@ select, .form_field, .uneditable-input
 
 .thumb-advert
   border-radius: 0px !important
-  transition: transform 0.05s ease
   transition: border-color 0.2s ease
   &:hover
-    border: 1px solid $base-green !important
-  &:active
-    transform: translate(0px, 4px)
+    border: 1px solid $base-green !important    
+
   
 .thumb-show
   border: 0px !important
@@ -345,7 +343,16 @@ select, .form_field, .uneditable-input
     -webkit-transform: scale(1.015)
     -moz-transform: scale(1.015)
     -ms-transform: scale(1.015)
-
+  
+.thumb-transform
+  transition: all 0.2s ease
+  &:hover
+    transform: scale(1.02)
+    -webkit-transform: scale(1.02)
+    -moz-transform: scale(1.015)
+    -ms-transform: scale(1.015)
+  &:active
+    transform: translate(0px, 4px)
   
 /* OGLOSZENIA */
 

@@ -9,7 +9,7 @@ module AdvertsHelper
   end
   
   def lista_rozmiar
-    [['rowery', "Rura podsiodłowa", 'cm',  'Długość', 'cm'], ['ramy', 'Rura podsiodłowa', 'cm', 'Długość', 'cm'], ['widelce', 'Rura sterowa', 'cm', 'Średnica', '"'], ['korby', 'Długość ramienia', 'cm'], ['koła', 'Rozmiar', '"'], ['kierownice', 'Szerokość', 'cm', 'Średnica mocowania', 'mm'], ['mostki', 'Długość', 'mm', 'Średnica mocowania', 'mm'], ['sztyce', 'Długość', 'cm', 'Średnica', 'mm'], ['siodła'], ['inne']]
+    [['rowery', "Rura podsiodłowa", 'cm',  'Długość', 'cm'], ['ramy', 'Rura podsiodłowa', 'cm', 'Długość', 'cm'], ['widelce', 'Rura sterowa', 'cm', 'Średnica', '"'], ['korby', 'Długość ramienia', 'cm'], ['koła', 'Rozmiar', '"'], ['kierownice', 'Szerokość', 'cm', 'Pod mocowanie', 'mm'], ['mostki', 'Długość', 'mm', 'Pod mocowanie', 'mm'], ['sztyce', 'Długość', 'cm', 'Średnica', 'mm'], ['siodła'], ['inne']]
   end
   
   def opis_thumbnail(opis)

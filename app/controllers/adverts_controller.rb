@@ -40,6 +40,9 @@ class AdvertsController < ApplicationController
       @adverts = Advert.where(category: params[:category]).desc.page(params[:page]).per_page(18) if !(params.keys & sort_list).any?
       @sort_type = 'category'
       @title = "Ogłoszenia w kategorii " + @adverts.first.category
+    elsif params[:wojewodztwo].blank? && params[:category].blank?
+      @adverts = apply_scopes(Advert).all.desc.page(params[:page]).per_page(18)
+      @title = "Wszystkie ogłoszenia"
     else
       flash.now[:info] = "Nie znaleziono ogłoszeń w podanej kategorii"
       @adverts = apply_scopes(Advert).all.desc.page(params[:page]).per_page(18)

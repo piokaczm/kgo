@@ -1,6 +1,7 @@
 resize_desc = (e) ->
-  newH = $('#dane').height()
-  $('#opis').height(newH)
+  if $('.navbar-toggle').is(':visible') == false
+    newH = $('#dane').height()
+    $('#opis').height(newH)
   
 
 $(document).ready(resize_desc)

@@ -9,6 +9,18 @@ $base-green: #04d27a
 $hover-green: #32e89b
 $nav-hover: #d6d6d6
 
+/* full height */
+
+html, body
+  height: 100%
+
+#content
+  height: 100%
+  margin-bottom: -60px
+ 
+.footer
+  height: 60px
+  clear: both
 
 
 /* MOBILE */
@@ -55,7 +67,7 @@ h1, h2, h3
   
 .mainpages-typo
   line-height: 1.3
-  font-size: 1.2em
+
   
 
 /* GLOBAL |BODY + NAVBAR |*/
@@ -194,6 +206,26 @@ footer
       .btn
         border: 0px
 
+.adverts_link
+  &:hover
+    a
+      color: $base-green
+      text-decoration: none
+      transform: translate(5px)
+    span
+      color: $base-green 
+      transform: translate(5px)
+  a
+    float: left
+    color: black
+    transition: all 0.2s ease
+  span
+    color: black
+    padding-left: 5px
+    transition: all 0.2s ease
+
+         
+  
         
 /* SIGNUP */
 
@@ -257,6 +289,7 @@ select, .form_field, .uneditable-input
   
 #twoje_ogloszenia
   border-left: 1px solid $gray-light
+  margin-bottom: 35px
   
 #edytuj
   margin-top: 15px
@@ -385,11 +418,14 @@ select, .form_field, .uneditable-input
 #dane
   border: 0px
   
+#adverts-index-title
+  margin-bottom: 0px
+  padding-bottom: 0px
+  
   /* MAIN PAGES */
   
   
 .regulamin
-  font-size: 1.2em
   line-height: 1.2
   li
     margin-bottom: 10px

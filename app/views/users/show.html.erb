@@ -67,13 +67,20 @@
         
         <% @adverts.each do |ad| %>
           <div class="col-md-3">
-            <%= link_to ad, class: "thumbnail thumb-advert" do %>
-              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fit %>
+            <%= link_to ad, class: "thumbnail thumb-advert thumb-transform" do %>
+
+              <%= cl_image_tag ad.picture, width: 350, height: 300, crop: :fit %>
+
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>
                 <p>Cena: <%= cena_format(ad.price) %></p>
-                <p><small>
-                  <%= opis_thumbnail(ad.content) + "..." %>
+                <p id="rozmiar"><small>
+                  <% lista_rozmiar.each do |list| %>
+                  <% if list[0] == ad.category %>
+                  <%= list[1] + ": " + parse_zeros(ad.size1).to_s + list[2] if list[1].present? %><br>
+                  <%= list[3] + ": " + parse_zeros(ad.size2).to_s + list[4] if list[3].present? %>
+                  <% end %>
+                <% end %>
                 </small></p>
               </div>
             <% end %>
@@ -87,4 +94,5 @@
 
 
   <% end %>
+</div>
 </div>

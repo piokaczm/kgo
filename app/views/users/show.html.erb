@@ -18,6 +18,9 @@
       <p>E-mail: <%= @current_user.email %></p>
       <p>Miejscowość: <%= @current_user.city %></p>
       <p>Województwo: <%= @current_user.wojewodztwo %></p>
+      <% if @current_user.fb_profile.present? %>
+      <p>Facebook: <%= "fb.com/" + @current_user.fb_profile %></p>
+      <% end %>
       <%= link_to edit_user_path(current_user) do %>
       <button id="edytuj" type="button" class="btn btn-sm btn-profile btn-advert-edit">Edytuj dane</button> 
       <% end %>
@@ -55,8 +58,15 @@
   <% else %>
   
     <div class="col-sm-12">
-      <h2 id="user_nick"><%= @user.username %></h2>
-      <p id="user_dane"><%= @user.name + ", " + @user.city %></p>
+      <h2 id="user_nick">
+        <% if @user.fb_profile.present? %>
+        <%= link_to "http://fb.com/#{@user.fb_profile}" do %>
+            <i class="fa fa-facebook-official fb-link"></i>
+          <% end %>
+        <% end %><%= @user.username %></h2>
+      <p id="user_dane">
+        
+        <%= @user.name + ", " + @user.city + "," + @user.wojewodztwo %></p>
     </div>
   
     <div class="row">

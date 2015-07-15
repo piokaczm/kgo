@@ -84,7 +84,13 @@ Lokalizacja: <%= @advert.city + ", " + @advert.wojewodztwo %>
 </li>
 
 <li class="list-group-item wystawione_przez">
-  Wystawione przez: <%= link_to @advert.user.username, @advert.user %>
+  Wystawione przez: 
+  <% if @advert.user.fb_profile.present? %>
+  <%= link_to "http://fb.com/#{@advert.user.fb_profile}", id: "fb-advert" do %>
+      <i class="fa fa-facebook-official fb-link"></i>
+    <% end %>
+  <% end %>
+  <%= link_to @advert.user.username, @advert.user %>
 </li>
 
 <% unless logged_in? && @user.id == @advert.user.id %>

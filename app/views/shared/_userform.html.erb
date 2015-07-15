@@ -17,6 +17,12 @@
     <%= f.label :Województwo %>
     <%= f.select :wojewodztwo, options_for_select(list_wojewodztwa.collect { |woj| [woj, woj] }), {}, { class: "form_field form-control" }  %>
     
+    <%= f.label :fb_profile, "Link do profilu fb (opcjonalne)" %>
+    <div class="input-group fb">
+      <div class="input-group-addon fb">facebook.com/</div>
+      <%= f.text_field :fb_profile, class: "form_field form-control" %>
+    </div>
+    
     <%= f.label :Hasło %>
     <%= f.password_field :password, class: "form_field form-control"  %>
     

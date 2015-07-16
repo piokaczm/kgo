@@ -45,9 +45,17 @@
         </div>  
       </div>
       
+      <%= f.label :fb_link, "Link do ogłoszenia na fb.com (opcjonalne)", class: "col-sm-2 col-sm-offset-3 control-label" %>
+      <div class="col-sm-4">
+        <div class="input-group form_field">
+          <span class="input-group-addon">facebook.com/</span>
+          <%= f.text_field :fb_link, class: "form_field form-control" %>          
+        </div>  
+      </div>
+      
       <%= f.label :content, "Treść ogłoszenia", class: "col-sm-2 col-sm-offset-3 control-label" %>
       <div class="col-sm-4">
-        <%= f.text_area :content, class: "form-control form_field", rows: "5" %>
+        <%= f.text_area :content, class: "form-control form_field", rows: "5", id: "advert_new_text_area" %>
       </div>
       
       <%= f.label :picture, "Zdjęcie przedmiotu", class: "col-sm-2 col-sm-offset-3 control-label" %>

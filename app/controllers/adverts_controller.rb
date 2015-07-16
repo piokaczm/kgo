@@ -82,14 +82,10 @@ class AdvertsController < ApplicationController
   private
   
   def advert_params
-    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture, :user_id)
+    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture, :user_id, :fb_link)
   end
   
-  def advert_params_update
-    params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture)
-  end
 
-  
    def is_logged_in
       unless logged_in?
         store_location

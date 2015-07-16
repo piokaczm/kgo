@@ -3,6 +3,8 @@
 @import "font-awesome-sprockets"
 @import "font-awesome"
 
+$screen-sx-max: 768px
+
 $gray-light: #d8d8d8
 $base-blue: #0B94FD
 $base-green: #04d27a
@@ -185,6 +187,10 @@ footer
   ul
     list-style: none
     float: right
+    @media (max-width: $screen-xs-max) 
+      text-align: center
+      float: none
+      
   
   li
     display: inline
@@ -428,19 +434,27 @@ select, .form_field, .uneditable-input
     color: $base-green
   
 .back
-  color: $gray-light
-  transition: all 0.2s ease
+  p
+    color: $gray-light
+    transition: all 0.2s ease
   span
     color: $gray-light
     transition: all 0.2s ease
   &:hover
-    color: $base-green
     text-decoration: none
-    transform: translate(-5px)
+    p
+      color: $base-green
+      text-decoration: none
+      transform: translate(-5px)
+      -webkit-transform: translate(-5px)
+      -moz-transform: translate(-5px)
+      -ms-transform: translate(-5px)
     span
       color: $base-green 
       transform: translate(-5px)
-
+      -webkit-transform: translate(-5px)
+      -moz-transform: translate(-5px)
+      -ms-transform: translate(-5px)
 
   
 /* THUMBNAILSY */

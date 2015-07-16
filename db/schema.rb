@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150716080919) do
+ActiveRecord::Schema.define(version: 20150716190214) do
 
   create_table "advert_contacts", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -38,6 +38,16 @@ ActiveRecord::Schema.define(version: 20150716080919) do
   add_index "adverts", ["user_id", "created_at"], name: "index_adverts_on_user_id_and_created_at"
   add_index "adverts", ["user_id"], name: "index_adverts_on_user_id"
 
+  create_table "invitations", force: :cascade do |t|
+    t.text     "email"
+    t.boolean  "used?",      default: false
+    t.integer  "user_id"
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "invitations", ["user_id"], name: "index_invitations_on_user_id"
+
   create_table "users", force: :cascade do |t|
     t.string   "username"
     t.string   "name"
@@ -54,6 +64,7 @@ ActiveRecord::Schema.define(version: 20150716080919) do
     t.string   "reset_digest"
     t.datetime "reset_sent_at"
     t.string   "fb_profile"
+    t.integer  "invitations_left",  default: 5
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true

@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :password_resets, only: [:edit, :update, :create, :new]
   resources :advert_contacts, only: [:create]
   resources :contact_mes, only: [:create]
+  resources :invitations, only: [:new, :create, :index], path: 'zaproszenia'
 
  
   # The priority is based upon order of creation: first created -> highest priority.

@@ -8,7 +8,5 @@ module ApplicationHelper
       text + ' | ' + base
     end
   end
-    
-
-  
+      
 end

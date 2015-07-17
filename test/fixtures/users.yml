@@ -11,6 +11,7 @@ piotr:
   admin: true
   activated: true
   activated_at: <%= Time.zone.now %>
+  invitations_left: 5
 
   
 cyc:
@@ -23,6 +24,7 @@ cyc:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  invitations_left: 0
 
   
 ciul:
@@ -35,4 +37,5 @@ ciul:
   password_digest: <%= User.digest('password') %>
   activated: true
   activated_at: <%= Time.zone.now %>
+  invitations_left: 2
 

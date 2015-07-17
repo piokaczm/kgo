@@ -1,0 +1,33 @@
+<% provide(:title, "Wyślij zaproszenie") %>
+
+<div class="row">
+  <h1 class="center line" id="invitation_header">Wyślij zaproszenie</h1>
+</div>
+
+<div class="row">
+  
+  <div class="col-xs-12 col-sm-8 col-sm-offset-2">
+    <p class="invitation">Tutaj możesz wysłać zaprosić swoich znajomych do zostania sprzedawcą w KGO. Prosimy abyś pamiętał, że każdy zarejestrowany użytkownik ma prawo wysłać 5 zaproszeń, a zaproszony znajomy musi użyć podczas rejestracji e-maila, na którego wysłałeś mu zaproszenie. Miej również na uwadze, że w naszym wspólnym interesie jest aby status sprzedawcy otrzymywały jedynie godne zaufania osoby :)</p>
+
+    <p class="invitation"><strong>Dostępne zaproszenia:</strong> <%= @user.invitations_left > 0 ? @user.invitations_left.to_s : "wykorzystałeś już wszystkie dostępne zaproszenia" %></p>
+  </div>
+</div>
+<div class="row">
+  
+  <%= form_for @invitation, class: "invitation" do |f| %>
+  
+  <div class="col-sm-2 col-sm-offset-2">
+    <%= f.label :email, "E-mail zapraszanego", class: "control-label" %>
+  </div>
+  <div class='col-sm-4'>
+    <%= f.email_field :email, class: "form-control form_field" %>
+  </div>
+  <%= f.hidden_field :user_id, value: @user.id %>
+  
+  <div class='col-sm-2'>
+    <%= f.submit "Wyślij", class: "btn btn-reg btn-send btn-advert-edit" %>
+  </div>
+  
+  <% end %>
+  
+</div>

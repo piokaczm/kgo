@@ -30,6 +30,12 @@ class UserMailer < ApplicationMailer
     @sender = sender
     mail from: sender.email, to: 'piokaczm@gmail.com', subject: "Kontakt: #{sender.subject}"
   end
+  
+  def invitation(invitation, user)
+    @invitation = invitation
+    @user = user
+    mail to: invitation.email, subject: "Zostałeś zaproszony do KGO!"
+  end
     
   
 end

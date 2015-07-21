@@ -1,11 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyText
+  email: piokaczm@gmail.com
   used?: false
-  user_id: 
-
+  user_id: 200
+  
 two:
-  email: MyText
+  email: cyc@cycowo.com
   used?: false
-  user_id: 
+  user_id: 200
+  
+three:
+  email: ciul@cycowo.com
+  used?: false
+  user_id: 200
+

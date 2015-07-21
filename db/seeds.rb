@@ -15,6 +15,25 @@ User.create!( name:  "Example User",
               password_confirmation: "foobar",
               admin: true,
               activated: true,
+              activated_at: Time.zone.now,
+              invitations_left: 200
+  )
+
+Invitation.create!( user_id: 1, email: "exampl@kupa.org" )
+
+15.times do |n|
+  Invitation.create!(user_id: 1, email: "example-#{n+1}@kupa.org")
+end
+
+User.create!( name:  "Example User",
+              email: "exampl@kupa.org",
+              username: "pizdek",
+              city: "Kowno",
+              wojewodztwo: "Śląskie",
+              password:              "foobar",
+              password_confirmation: "foobar",
+              admin: false,
+              activated: true,
               activated_at: Time.zone.now              
   )
 
@@ -34,6 +53,8 @@ User.create!( name:  "Example User",
               activated: true,
               activated_at: Time.zone.now)
 end
+
+
 
 6.times do |n|
   title = Faker::Lorem.sentence

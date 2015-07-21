@@ -12,8 +12,9 @@ class InvitationsController < ApplicationController
     @user = current_user
     if @invitation.save
       @invitation.user.invitations_left -= 1
-      flash.now[:success] = "Zaproszenie zostało wysłane"
-      render 'new'
+      @invitation.send_invitation
+      flash[:success] = "Zaproszenie zostało wysłane"
+      redirect_to user_path(@user)
     else
       flash.now[:danger] = "Nie udało się wysłać zaproszenia"
       render 'new'

@@ -38,4 +38,14 @@ ciul:
   activated: true
   activated_at: <%= Time.zone.now %>
   invitations_left: 2
-
+  
+cipus: 
+  id: 200
+  name: ciu
+  email: cul@cyowo.com
+  city: Tyszky
+  wojewodztwo: Śląskie
+  password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
+  invitations_left: 20

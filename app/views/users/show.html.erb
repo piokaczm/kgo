@@ -25,6 +25,10 @@
       <button id="edytuj" type="button" class="btn btn-sm btn-profile btn-advert-edit">Edytuj dane</button> 
       <% end %>
       
+      <%= link_to new_invitation_path(current_user) do %>
+      <button type="button" class="btn btn-sm btn-profile btn-advert-edit">Wyślij zaproszenie</button> 
+      <% end %>
+      
       <% if @current_user.admin? %>
         <%= link_to users_path do %>
         <button type="button" class="btn btn-sm btn-profile btn-advert-edit">Lista użytkowników</button>

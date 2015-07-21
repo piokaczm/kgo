@@ -6,8 +6,12 @@ class UserTest < ActiveSupport::TestCase
   # end
   
   def setup
-    @user = User.new(username: "kaczmuch", name: "Piotr", email: "piokaczm@gmail.com", city: "Tychy", wojewodztwo: "Śląskie", password: "foobar", password_confirmation: "foobar")
-  end
+    @user = User.new(username: "kaczmuch", name: "Piotr", email: "piokaczm@gmail.com", city: "Tychy", wojewodztwo: "Śląskie", password: "foobar", password_confirmation: "foobar", id: 20)
+    @invitation = invitations(:one)
+    @invitation.save
+    @invitation2 = Invitation.new(email: "foof@gmail.com", user_id: 200)
+    @invitation2.save
+  end  
   
   test "should be valid" do
     assert @user.valid?
@@ -113,5 +117,10 @@ class UserTest < ActiveSupport::TestCase
       @user.destroy
     end
   end
+  
+  test 'univited user should not be saved' do
+    user = User.new(username: "kczmuch", name: "Piotr", email: "aczm@gmail.com", city: "Tychy", wojewodztwo: "Śląskie", password: "foobar", password_confirmation: "foobar")
+    assert_not user.save
+  end  
     
 end

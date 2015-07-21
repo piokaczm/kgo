@@ -7,8 +7,11 @@ class UsersSignupTest < ActionDispatch::IntegrationTest
   
   def setup
     ActionMailer::Base.deliveries.clear
+    @invitation = invitations(:one)
+    @invitation.save
   end
   
+
   test "Invalid signup rejected" do
     get rejestracja_path
     assert_no_difference 'User.count' do

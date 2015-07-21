@@ -83,14 +83,23 @@ Długość: <%= @advert.size1.to_s + "cm" %>
 Lokalizacja: <%= @advert.city + ", " + @advert.wojewodztwo %>
 </li>
 
+<% if @advert.gallery_link.present? %>
+<li class="list-group-item">
+  Galeria zdjęć: 
+  <%= link_to @advert.gallery_link, id: "fb-advert-link", target: '_blank' do %>
+      Przejdź
+    <% end %>
+</li>
+<% end %>
+
+<% if @advert.fb_link.present? %>
 <li class="list-group-item">
   Ogłoszenie na fb: 
-  <% if @advert.fb_link.present? %>
   <%= link_to "http://fb.com/#{@advert.fb_link}", id: "fb-advert-link", target: '_blank' do %>
       Przejdź
     <% end %>
-  <% end %>
 </li>
+<% end %>
 
 <li class="list-group-item wystawione_przez">
   Wystawione przez: 

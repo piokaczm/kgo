@@ -30,6 +30,13 @@ html, body
 .dropdown-menu
   li
     backgorund-color: white
+    
+/*@media max-width: $screen-xs-max {
+  footer
+    ul
+      text-align: center
+      float: left
+      }*/
   
 /* UTILITIES */
 
@@ -43,6 +50,7 @@ html, body
   
 .line
   border-bottom: 1px solid $gray-light
+  margin-bottom: 30px !important
 
 
 /* TypOGRAPHY */
@@ -86,7 +94,10 @@ h1, h2, h3
 
 /* GLOBAL |BODY + NAVBAR |*/
 
-
+#logo
+  max-height: 20px
+  &:hover
+    color: $nav-hover
 
 a
   color: $base-green
@@ -187,10 +198,7 @@ footer
   ul
     list-style: none
     float: right
-    @media (max-width: $screen-xs-max) 
-      text-align: center
-      float: none
-      
+
   
   li
     display: inline

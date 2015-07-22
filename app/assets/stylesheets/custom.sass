@@ -94,10 +94,23 @@ h1, h2, h3
 
 /* GLOBAL |BODY + NAVBAR |*/
 
+#logo-wrapper
+  text-align: center
+
 #logo
-  max-height: 20px
+  margin-top: -8px
+  max-height: 40px
+  transition: all 0.2s ease
+  -moz-transition: all 0.2s ease
+  -webkit-transition: all 0.2s ease
+  -ms-transition: all 0.2s ease
   &:hover
-    color: $nav-hover
+    transform: scale(1.1)
+    -webkit-transform: scale(1.1)
+    -moz-transform: scale(1.1)
+    -ms-transform: scale(1.1)
+  &:active
+    transform: translate(0px, 4px)
 
 a
   color: $base-green

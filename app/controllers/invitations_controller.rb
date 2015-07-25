@@ -11,7 +11,7 @@ class InvitationsController < ApplicationController
     @invitation = Invitation.create(invitation_params)
     @user = current_user
     if @invitation.save
-      @invitation.user.invitations_left -= 1
+      @user.update_attributes(:invitations_left => @user.invitations_left - 1)
       @invitation.send_invitation
       flash[:success] = "Zaproszenie zostało wysłane"
       redirect_to user_path(@user)

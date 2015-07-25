@@ -11,9 +11,7 @@ class SessionsController < ApplicationController
         flash[:success] = "Jesteś zalogowany jako #{user.username}!"
         redirect_back_or user        
       else
-        message = "Konto nie zotało aktywowane"
-        message += "Kliknij link z wiadomości wysłanej na Twój e-mail"
-        flash[:warning] = message
+        flash[:warning] = "Konto nie zostało aktywowane. Kliknij link z wiadomości wysłanej na Twój e-mail"
         redirect_to root_path
       end
     else

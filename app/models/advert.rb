@@ -10,7 +10,8 @@ class Advert < ActiveRecord::Base
   scope :price, -> { order(price: :asc) }
   scope :price_desc, -> { order(price: :desc) }
   scope :size, -> { order(size1: :asc) }
-  scope :size_desc, -> { order(size1: :desc) } 
+  scope :size_desc, -> { order(size1: :desc) }
+  
   
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
   TYPELIST = %w(rowery ramy widelce korby koła kierownice mostki sztyce siodła inne)
@@ -19,6 +20,7 @@ class Advert < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
   validate  :dont_be_stupid
+  validate  :check_pic_dimensions
   validates :content, presence: true, length: { maximum: 1000 }
   validates :price, presence: true, numericality: true
   validates :wojewodztwo, presence: true, inclusion: { in: WOJLIST }
@@ -57,7 +59,18 @@ class Advert < ActiveRecord::Base
     end
   end
   
-  
+  def check_pic_dimensions 
+  if self.picture.present? && self.picture.metadata.present? 
+    width = self.picture.metadata["width"] 
+    height = self.picture.metadata["height"]
+    if width.to_f / height.to_f < 0.8
+      errors.add(:base, "Obrazek jest niewymiarowy, zachowaj stosunek szerokość/wysokość powyżej 0.8")
+      return false 
+    else
+      true
+    end
+  end 
+end 
       
   
   

@@ -17,8 +17,8 @@ html, body
   height: 100%
 
 #content
-  height: 100%
-  margin-bottom: -60px
+  min-height: 100%
+  padding-bottom: -60px
  
 .footer
   height: 60px
@@ -51,6 +51,10 @@ html, body
 .line
   border-bottom: 1px solid $gray-light
   margin-bottom: 30px !important
+  
+.debug_dump
+  display: default
+  width: 100%
 
 
 /* TypOGRAPHY */
@@ -115,6 +119,7 @@ h1, h2, h3
 a
   color: $base-green
   &:hover
+    text-decoration: none
     color: black
 
 .alert
@@ -211,10 +216,11 @@ footer
   ul
     list-style: none
     float: right
+    white-space: nowrap
 
   
   li
-    display: inline
+    display: inline-block
     padding: 10px
 
     

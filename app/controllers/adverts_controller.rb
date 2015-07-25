@@ -52,7 +52,8 @@ class AdvertsController < ApplicationController
 
   def create
     @user = current_user
-    @advert = @user.adverts.create(advert_params)
+    @advert = @user.adverts.new(advert_params)
+    byebug
     if @advert.save
       flash[:success] = "Ogłoszenie zostało dodane"
       redirect_to @user

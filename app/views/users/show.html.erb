@@ -44,7 +44,7 @@
         <% @adverts.each do |ad| %>
           <div class="col-md-4">
             <%= link_to ad, class: "thumbnail thumb-advert thumb-transform" do %>
-              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fit %>
+              <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>
                 <p>Cena: <%= cena_format(ad.price) %></p>
@@ -91,7 +91,7 @@
           <div class="col-md-3">
             <%= link_to ad, class: "thumbnail thumb-advert thumb-transform" do %>
 
-              <%= cl_image_tag ad.picture, width: 350, height: 300, crop: :fit %>
+              <%= cl_image_tag ad.picture, width: 350, height: 300, crop: :fill %>
 
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>

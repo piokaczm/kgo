@@ -2,7 +2,10 @@ class Advert < ActiveRecord::Base
   include ActiveModel::Validations::Callbacks
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
+
   
+  
+  attr_accessor :image_width, :image_height
   mount_uploader :picture, AdvertPhotoUploader  
   belongs_to :user  
   
@@ -20,7 +23,6 @@ class Advert < ActiveRecord::Base
   validates :user_id, presence: true
   validates :title, presence: true, length: { maximum: 150 }
   validate  :dont_be_stupid
-  validate  :check_pic_dimensions
   validates :content, presence: true, length: { maximum: 1000 }
   validates :price, presence: true, numericality: true
   validates :wojewodztwo, presence: true, inclusion: { in: WOJLIST }
@@ -58,20 +60,5 @@ class Advert < ActiveRecord::Base
       end
     end
   end
-  
-  def check_pic_dimensions 
-  if self.picture.present? && self.picture.metadata.present? 
-    width = self.picture.metadata["width"] 
-    height = self.picture.metadata["height"]
-    if width.to_f / height.to_f < 0.8
-      errors.add(:base, "Obrazek jest niewymiarowy, zachowaj stosunek szerokość/wysokość powyżej 0.8")
-      return false 
-    else
-      true
-    end
-  end 
-end 
-      
-  
   
 end

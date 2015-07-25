@@ -27,7 +27,7 @@
           <div class="col-xs-6 col-sm-4 col-md-2">
             <%= link_to ad, class: "thumbnail thumb-advert thumb-transform" do %>
 
-              <%= cl_image_tag ad.picture, width: 350, height: 300, crop: :fit %>
+              <%= cl_image_tag ad.picture, width: 350, height: 300, crop: :fill %>
 
               <div class="caption">
                 <h5><strong><%= tytul_format(ad.title) %></strong></h5>

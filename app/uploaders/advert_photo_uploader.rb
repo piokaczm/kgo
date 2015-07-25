@@ -3,9 +3,8 @@
 class AdvertPhotoUploader < CarrierWave::Uploader::Base
 
   include Cloudinary::CarrierWave
-  
-  
 
+  # callback, example here: http://goo.gl/9VGHI
   
   
   # Include RMagick or MiniMagick support:

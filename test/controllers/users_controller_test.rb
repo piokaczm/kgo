@@ -11,7 +11,7 @@ class UsersControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
-    assert_select "title", "Rejestracja | KaGieO"
+    assert_select "title", "Rejestracja | KGO"
   end
   
   test "should find user page" do

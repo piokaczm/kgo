@@ -1,7 +1,7 @@
 module ApplicationHelper
   
   def title(text=0)
-    base = "KaGieO"
+    base = "KGO"
     if text.empty?
       base + ' | Koleżeńska Giełda Ostrokołowa'
     else

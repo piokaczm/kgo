@@ -42,7 +42,7 @@ class ActiveSupport::TestCase
     list.each do |pair|
       get pair[0]
       assert_response :success
-      assert_select "title", pair[1] + " | KaGieO"
+      assert_select "title", pair[1] + " | KGO"
     end
   end
   

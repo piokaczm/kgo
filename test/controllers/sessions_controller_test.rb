@@ -4,7 +4,7 @@ class SessionsControllerTest < ActionController::TestCase
   test "should get new" do
     get :new
     assert_response :success
-    assert_select "title", "Login | KGO"
+    assert_select "title", "Login | KaGieO"
   end
 
 end

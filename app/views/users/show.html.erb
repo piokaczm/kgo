@@ -73,7 +73,7 @@
     <div class="col-sm-12">
       <h2 id="user_nick">
         <% if @user.fb_profile.present? %>
-        <%= link_to "http://fb.com/#{@user.fb_profile}" do %>
+        <%= link_to "http://fb.com/#{@user.fb_profile}", target: '_blank' do %>
             <i class="fa fa-facebook-official fb-link"></i>
           <% end %>
         <% end %><%= @user.username %></h2>

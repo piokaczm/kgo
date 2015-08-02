@@ -28,8 +28,11 @@ module AdvertsHelper
   end
   
   def parse_zeros(attr)
-    attr.to_i if attr == attr.to_i
-    attr if attr != attr.to_i
+    if attr == attr.to_i
+      attr.to_i
+    else
+      attr
+    end
   end
   
 end

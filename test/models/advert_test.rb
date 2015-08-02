@@ -56,10 +56,17 @@ class AdvertTest < ActiveSupport::TestCase
   
   test "size1 and size2 should be numeric" do
     @advert.size1 = 55.5
-    assert_not @advert.valid?
+    #byebug
+    assert @advert.valid?
     @advert.size1 = @advert.size2 = "kupa"
     assert_not @advert.valid?
     @advert.size1 = @advert.size2 = 55
+    assert @advert.valid?
+    @advert.size2 = 55.5
+    assert @advert.valid?
+    @advert.size2 = @advert.size2 = "kupa"
+    assert_not @advert.valid?
+    @advert.size2 = @advert.size2 = 55
     assert @advert.valid?
   end
   

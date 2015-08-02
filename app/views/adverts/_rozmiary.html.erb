@@ -9,7 +9,7 @@ Stan: <%= @advert.new == true ? "Nowy" : "Używany" %>
 <% if @advert.category == 'rowery' %>
 
 <li class="list-group-item">
-Rura podsiodłowa: <%= @advert.size1.to_s + "cm" %>
+Rura podsiodłowa: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 <li class="list-group-item">
   Długość ramy: <%= parse_zeros(@advert.size2).to_s + "cm" %>
@@ -18,7 +18,7 @@ Rura podsiodłowa: <%= @advert.size1.to_s + "cm" %>
 <% elsif @advert.category == 'ramy' %>
 
 <li class="list-group-item">
-Rura podsiodłowa: <%= @advert.size1.to_s + "cm" %>
+Rura podsiodłowa: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 <li class="list-group-item">
 Długość ramy: <%= parse_zeros(@advert.size2).to_s + "cm" %>
@@ -27,7 +27,7 @@ Długość ramy: <%= parse_zeros(@advert.size2).to_s + "cm" %>
 <% elsif @advert.category == 'widelce' %>
 
 <li class="list-group-item">
-Długość sterówki: <%= @advert.size1.to_s + "cm" %>
+Długość sterówki: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 <li class="list-group-item">
 Pod średnicę: <%= parse_zeros(@advert.size2).to_s + "\"" %>
@@ -36,20 +36,20 @@ Pod średnicę: <%= parse_zeros(@advert.size2).to_s + "\"" %>
 <% elsif @advert.category == 'korby' %>
 
 <li class="list-group-item">
-Długość ramienia: <%= @advert.size1.to_s + "cm" %>
+Długość ramienia: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 
 
 <% elsif @advert.category == 'koła' %>
 
 <li class="list-group-item">
-Rozmiar: <%= @advert.size1.to_s + "\"" %>
+Rozmiar: <%= parse_zeros(@advert.size1).to_s + "\"" %>
 </li>
 
 <% elsif @advert.category == 'kierownice' %>
 
 <li class="list-group-item">
-Szerokość: <%= @advert.size1.to_s + "cm" %>
+Szerokość: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 <li class="list-group-item">
 Średnica mocowania: <%= parse_zeros(@advert.size2).to_s + "mm" %>
@@ -58,7 +58,7 @@ Szerokość: <%= @advert.size1.to_s + "cm" %>
 <% elsif @advert.category == 'mostki' %>
 
 <li class="list-group-item">
-Długość mostka: <%= @advert.size1.to_s + "mm" %>
+Długość mostka: <%= parse_zeros(@advert.size1).to_s + "mm" %>
 </li>
 <li class="list-group-item">
 Średnica mocowania: <%= parse_zeros(@advert.size2).to_s + "mm" %>
@@ -67,7 +67,7 @@ Długość mostka: <%= @advert.size1.to_s + "mm" %>
 <% elsif @advert.category == 'sztyce' %>
 
 <li class="list-group-item">
-Długość: <%= @advert.size1.to_s + "cm" %>
+Długość: <%= parse_zeros(@advert.size1).to_s + "cm" %>
 </li>
 <li class="list-group-item">
 Średnica: <%= parse_zeros(@advert.size2).to_s + "mm" %>

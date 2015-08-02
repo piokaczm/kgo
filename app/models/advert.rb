@@ -27,7 +27,7 @@ class Advert < ActiveRecord::Base
   validates :price, presence: true, numericality: true
   validates :wojewodztwo, presence: true, inclusion: { in: WOJLIST }
   validates :new, inclusion: { in: [true, false] } 
-  validates :size1, numericality: { only_integer: true }, :unless => :not_require_both_sizes?
+  validates :size1, numericality: true, :unless => :not_require_both_sizes?
   validates :size2, numericality: true, :unless => :not_require_size2?
   validates :city, presence: true
   validates :category, presence: true, inclusion: { in: TYPELIST }

@@ -79,5 +79,5 @@ User.create!( name:  "Piotr",
 #                  city: city,
 #                  user_id: user[Random.new.rand(0..9)],
 #                  picture: picture)
-end
+#end
   

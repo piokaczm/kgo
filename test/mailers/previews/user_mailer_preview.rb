@@ -23,5 +23,11 @@ class UserMailerPreview < ActionMailer::Preview
                 receiver_email: "piczkon@picze.pl" )
     UserMailer.contact_form(message)
   end
+  
+  def invitation
+    invitation = Invitation.new(user_id: 3, email: 'dupa@cyce.com') 
+    user = User.find_by(id: 3)
+    UserMailer.invitation(invitation, user)
+  end
 
 end

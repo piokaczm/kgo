@@ -44,7 +44,7 @@
       
         
         <% @adverts.each do |ad| %>
-          <div class="col-xs-6 col-sm-4 col-md-2">
+          <div class="col-xs-6 col-sm-3">
             <%= link_to ad, class: "thumbnail thumb-advert thumb-transform" do %>
               <%= cl_image_tag ad.picture, width: 300, height: 300, crop: :fill %>
               <div class="caption">

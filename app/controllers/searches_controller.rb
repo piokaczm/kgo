@@ -1,5 +1,4 @@
 class SearchesController < ApplicationController
-  
   def search
     if params[:query].nil?
       @adverts = []
@@ -8,5 +7,4 @@ class SearchesController < ApplicationController
       @zapytanie = params[:query]
     end
   end
-  
 end

@@ -1,5 +1,4 @@
 class AdvertContact
-
   include ActiveModel::Model
   include ActiveModel::Conversion
   include ActiveModel::Validations
@@ -11,5 +10,4 @@ class AdvertContact
   validates :content, presence: true
   validates :subject, presence: true
   validates :receiver_email, presence: true, format: { with: /\A[\w+\-.]+@[a-z\d\-]+(\.[a-z\d\-]+)*\.[a-z]+\z/i }
-
 end

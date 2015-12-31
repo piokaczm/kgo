@@ -9,33 +9,27 @@ class AdvertsController < ApplicationController
   before_action :authorized_user, only: [:edit, :update, :destroy]
   
   def new
-    @advert = Advert.new
-    @user = current_user
+    @advert = current_user.adverts.new
   end
 
   def show
-    @advert = Advert.find_by(id: params[:id])
+    @advert = Advert.find(params[:id])
     @user = current_user
     @mail = AdvertContact.new
-    respond_to do |format|
-      format.html
-      format.js
-    end
   end
 
   def edit
-    @advert = Advert.find_by(id: params[:id])
-    @user = current_user
+    @advert = current_user.adverts.find(params[:id])
   end
 
-  def index    
+  def index
     sort_list = ['price', 'price_desc', 'size', 'size_desc']
-    if Advert.exists?(wojewodztwo: params[:wojewodztwo])      
+    if Advert.exists?(wojewodztwo: params[:wojewodztwo])
       @adverts = apply_scopes(Advert).where('wojewodztwo = ?', params[:wojewodztwo]).page(params[:page]).per_page(18) if (params.keys & sort_list).any?
       @adverts = Advert.where('wojewodztwo = ?', params[:wojewodztwo]).desc.page(params[:page]).per_page(18) if !(params.keys & sort_list).any?
       @sort_type = 'wojewodztwo'
       @title = "Ogłoszenia w " + @adverts.first.wojewodztwo
-    elsif Advert.exists?(category: params[:category])      
+    elsif Advert.exists?(category: params[:category])
       @adverts = apply_scopes(Advert).where('category = ?', params[:category]).page(params[:page]).per_page(18) if (params.keys & sort_list).any?
       @adverts = Advert.where('category = ?', params[:category]).desc.page(params[:page]).per_page(18) if !(params.keys & sort_list).any?
       @sort_type = 'category'
@@ -51,30 +45,28 @@ class AdvertsController < ApplicationController
   end
 
   def create
-    @user = current_user
-    @advert = @user.adverts.new(advert_params)
+    @advert = current_user.adverts.new(advert_params)
     if @advert.save
       flash[:success] = "Ogłoszenie zostało dodane"
       redirect_to @user
     else
-       render 'new'
-    end      
-  end 
+       render 'new', notice: 'Wystąpił błąd, spróbuj jeszcze raz'
+    end
+  end
 
   
   def update
-    @advert = Advert.find_by(id: params[:id])
-    @user = current_user
+    @advert = current_user.adverts.find(params[:id])
     if @advert.update_attributes(advert_params)
       flash[:success] = "Ogłoszenie zostało zaaktualizowane"
       redirect_to @advert
     else
-      render 'edit'
+      render 'edit', notice: 'Wystąpił błąd, spróbuj jeszcze raz'
     end
   end
-  
+
   def destroy
-    Advert.find(params[:id]).destroy
+    current_user.adverts.find(params[:id]).destroy
     flash[:success] = "Usunięto ogłoszenie"
     redirect_to root_path
   end
@@ -84,7 +76,6 @@ class AdvertsController < ApplicationController
   def advert_params
     params.require(:advert).permit(:title, :content, :price, :wojewodztwo, :new, :size1, :size2, :city, :category, :picture, :user_id, :fb_link, :gallery_link)
   end
-  
 
    def is_logged_in
       unless logged_in?
@@ -93,7 +84,7 @@ class AdvertsController < ApplicationController
         redirect_to login_path
       end
     end
-  
+
   def authorized_user
     @user = current_user
     @advert = Advert.find(params[:id])
@@ -101,8 +92,5 @@ class AdvertsController < ApplicationController
       flash[:danger] = "Nie posiadasz dostępu do wskazanej strony"
       redirect_to root_path
     end
-  end  
-  
-
-  
+  end
 end

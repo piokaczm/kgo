@@ -1,5 +1,4 @@
 class ContactMesController < ApplicationController
-  
   def create
     @contact = ContactMe.new(contact_params)
     if @contact.valid?
@@ -11,11 +10,9 @@ class ContactMesController < ApplicationController
       redirect_to :back
     end
   end
-    
 
-  
   private
-  
+
   def contact_params
     params.require(:contact_me).permit(:name, :subject, :email, :content)
   end

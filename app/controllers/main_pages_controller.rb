@@ -1,5 +1,4 @@
 class MainPagesController < ApplicationController
-  
   def home
     @adverts = Advert.all.order("id desc").limit(6)
   end
@@ -13,10 +12,7 @@ class MainPagesController < ApplicationController
   def contact
     @contact = ContactMe.new
   end
-  
+
   def terms
   end
-  
 end
-
- 

@@ -1,8 +1,5 @@
 class AdvertContactsController < ApplicationController
-  
-  
-  
-  def create    
+  def create
     @advert = Advert.find_by(id: params[:id])
     @mail = AdvertContact.new(mail_params)
     if @mail.valid?
@@ -14,11 +11,10 @@ class AdvertContactsController < ApplicationController
       redirect_to :back
     end
   end
-  
+
   private
-  
+
   def mail_params
     params.require(:advert_contact).permit(:sender_email, :receiver_email, :content, :name, :subject)
   end
-  
 end

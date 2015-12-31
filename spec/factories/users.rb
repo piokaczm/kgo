@@ -4,7 +4,8 @@ FactoryGirl.define do
     username Faker::Internet.user_name
     sequence(:email) { |n| "user#{n}@example.com"}
     city Faker::Address.city
-    wojeowdztwo User::WOJLIST.sample
+    wojewodztwo User::WOJLIST.sample
+    activation_token Faker::Lorem.characters(20)
     password 'foobar'
 
     factory :user_with_invitations do

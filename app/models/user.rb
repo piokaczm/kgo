@@ -2,7 +2,6 @@ class User < ActiveRecord::Base
   has_many :adverts, dependent: :destroy
   has_many :invitations
   has_secure_password
-  before_save :is_invited?, unless: :admin?
 
   WOJLIST = %w(Dolnośląskie Kujawsko-pomorskie Lubelskie Lubuskie Łódzkie Małopolskie Mazowieckie Opolskie Podkarpackie Podlaskie Pomorskie Śląskie Świętokrzyskie Warmińsko-mazurskie Wielkopolskie Zachodniopomorskie)
 
@@ -60,15 +59,6 @@ class User < ActiveRecord::Base
 
   def password_reset_expired?
     reset_sent_at < 2.hours.ago
-  end
-
-  def is_invited?
-    unless !Invitation.find_by(email: self.email.downcase).nil?
-      errors.add(:base, "Twojego e-maila nie ma na liście zaproszonych")
-      false
-    else
-      true
-    end
   end
 
   def admin?
